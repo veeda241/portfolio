@@ -1,66 +1,126 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vyas Senthilkumar | AI Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vyas | Generative AI Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet" />
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: white;
+      background-color: #0e0e2c;
+      overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .background-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://media.giphy.com/media/l3vR85PnGsBwu1PFK/giphy.gif') center/cover no-repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    /* Section Container */
+    section {
+      padding: 6rem 2rem;
+      text-align: center;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd70080;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    /* Icon Row */
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .icons img {
+      width: 40px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #ffd70080, transparent);
+      margin: 4rem 0;
+    }
+  </style>
 </head>
 <body>
+  <div class="background-animation"></div>
 
-  <header>
-    <h1>Vyas Senthilkumar</h1>
-    <p>AI Engineer | Emotional AI Developer | Python + GPT Enthusiast</p>
-  </header>
+  <!-- Slide 1: Intro -->
+  <section id="intro">
+    <h1>Hi, I'm Vyas</h1>
+    <p>Generative AI Intern @ Inspire Softech<br>
+       Skilled in LLMs, Hugging Face, Prompt Engineering, Gradio, SQL, UiPath, pandas<br>
+       AICTE-Certified · Chennai, Tamil Nadu, India</p>
+  </section>
 
-  <section>
+  <hr class="divider" />
+
+  <!-- Slide 2: About Me -->
+  <section id="about">
     <h2>About Me</h2>
     <p>
-      I’m an Applied Data Science student from St. Joseph’s College of Engineering, passionate about building AI systems that feel, think, and interact like humans.
-      I specialize in Emotional AI, GPT integration, and full-stack systems using Python, MySQL, and FastAPI.
+      I'm a passionate AI engineer and aspiring database administrator.<br>
+      Experienced in building intelligent systems and automating data workflows using SQL, Oracle, UiPath, Python, and pandas.<br>
+      I specialize in creating secure, optimized, and scalable solutions — bridging data integrity with smart automation.
     </p>
+    <div class="icons">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle">
+      <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" />
+    </div>
   </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Nova AI</strong> – Emotion detection + GPT reply + voice output (Python, OpenCV, MySQL)</li>
-      <li><strong>Robinhood</strong> – AI for tax fairness & alerts (FastAPI + MySQL)</li>
-      <li><strong>AI Classroom</strong> – Virtual AI tutor aligned with UN SDG 4</li>
-      <li><strong>Solar Harvesting</strong> – Dual-sided energy collection for agriculture</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <p>
-      Python, OpenCV, GPT APIs, MySQL, FastAPI, MongoDB, HTML, CSS, JavaScript, GitHub, React, UiPath
-    </p>
-  </section>
-
-  <section>
-    <h2>Certifications</h2>
-    <ul>
-      <li>Microsoft – Computer Vision</li>
-      <li>GitHub – Copilot, Actions, Prompt Engineering</li>
-      <li>IBM – GenAI with LangChain & Hugging Face</li>
-      <li>Google – Digital Footprint</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>
-      📧 Email: <a href="mailto:vyassenthilkumar@gmail.com">vyassenthilkumar@gmail.com</a><br>
-      💻 GitHub: <a href="https://github.com/veeda-241" target="_blank">github.com/veeda-241</a><br>
-      💼 LinkedIn: <a href="https://linkedin.com/in/vyas" target="_blank">linkedin.com/in/vyas</a><br>
-      🏴 Discord: CodeHackPirates
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2025 Vyas Senthilkumar • All Rights Reserved</p>
-  </footer>
-
+  <!-- Add more slides like Skills, Experience, Education, Certifications, and Contact -->
 </body>
 </html>
