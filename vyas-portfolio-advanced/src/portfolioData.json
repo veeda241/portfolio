@@ -1,51 +1,51 @@
-
 {
   "header": {
-    "title": "Vyas — Developer & Creator",
-    "subtitle": "Engineering real-world solutions with AI, creativity, and heart."
+    "title": "Vyas S",
+    "subtitle": "AI/ML student and community leader with hands-on experience in developing AI solutions and leading technical communities. Certified in Google Cloud Vertex AI Prompt Design and experienced in building interactive AI assistants with Hugging Face, Gradio, and Python."
   },
   "about": {
     "title": "About Me",
-    "content": "Passionate AI engineer and aspiring database administrator with hands-on experience in Hugging Face, LangChain, Gradio, SQL, UiPath, and pandas. I specialize in building intelligent systems and automating data workflows — merging data integrity with smart automation."
+    "content": "I am an Aspiring AI Engineer and Applied Data Science student with a passion for developing real-world solutions. My experience includes building projects like the emotion-aware Nova AI and a precision farming system called Aerorover. I am proficient in Python, MySQL, and FastAPI, and an active contributor to tech communities. I am currently honing my skills as an intern at Inspire Softech Solution."
   },
   "skills": {
     "title": "Skills",
     "items": [
-      "Python, TensorFlow, LangChain, Hugging Face",
-      "Database: SQL, Oracle, UiPath, pandas",
-      "Web Dev: HTML, CSS, Responsive Design",
-      "Project Management, Prompt Engineering"
+      "Artificial Intelligence & Machine Learning",
+      "Python",
+      "SQL & Databases",
+      "HTML/CSS & JavaScript",
+      "Flask & FastAPI",
+      "Gradio & Hugging Face",
+      "UiPath (RPA)",
+      "Prompt Engineering",
+      "Natural Language Processing (NLP)"
     ]
   },
   "projects": {
     "title": "Projects",
     "items": [
       {
-        "title": "Movie AI: Script-based Scene Generator with Gradio",
-        "description": "A tool that generates movie scenes from scripts using AI.",
+        "title": "Nova AI",
+        "description": "Developed and led Nova AI, a project leveraging Python and NLP to automate high-quality content generation. This initiative increased content output by 40% and significantly reduced production time, boosting user engagement.",
         "link": ""
       },
       {
-        "title": "Pharma AI+: Medicine Verification with Vision Models",
-        "description": "A tool that verifies medicines using vision models.",
-        "link": ""
-      },
-      {
-        "title": "Blog: TechLearning17",
-        "description": "A blog where I share my knowledge and experience.",
-        "link": "https://techlearning17.blogspot.com"
+        "title": "Personal Portfolio Website",
+        "description": "This personal portfolio, built with React and TypeScript, showcases my projects, skills, and achievements in AI/ML and software development. It features a modern, responsive design with interactive elements.",
+        "link": "https://github.com/veeda241/vyas-portfolio-advanced"
       }
     ]
   },
   "achievements": {
-    "title": "Achievements",
+    "title": "Achievements & Certifications",
     "items": [
-        "AICTE-Certified Internship: GenAI with LangChain & Hugging Face",
-        "Custom GenAI Tools Built: Chat with PDFs, Resume Assistant, Q&A Bots",
-        "Certified Courses: Python Fundamentals, PHP+MySQL, JS Projects",
-        "Creator — TechLearning17: Published insights and tutorials for developers",
-        "Automation & Database Skills: SQL, pandas, Oracle, UiPath workflows",
-        "Scene Generator Lead: Gradio interface for cinematic AI + script logic"
+      "Nova AI Developer: Created a next-generation Emotional AI assistant with real-time facial emotion detection, smart data logging, and natural voice interaction.",
+      "Community Leader at CodeHackPirates: Founded a Discord community to foster collaborative learning in AI/ML and automation domains.",
+      "Google Cloud Vertex AI Skill Badge",
+      "GenAi powered Data Analytics Job Simulation - Forage",
+      "Artificial Intelligence Fundamentals",
+      "Introduction to Data Science - Cisco",
+      "Intern at Inspire Softech Solution"
     ]
   },
   "contact": {
@@ -61,8 +61,8 @@
         "url": "https://www.linkedin.com/in/vyas-s-veeda/"
       },
       {
-        "name": "Instagram",
-        "url": "https://www.instagram.com/veeda_241/"
+        "name": "LeetCode",
+        "url": "https://leetcode.com/vyas_sk/"
       }
     ]
   }
