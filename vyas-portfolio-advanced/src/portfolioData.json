@@ -1,0 +1,69 @@
+
+{
+  "header": {
+    "title": "Vyas — Developer & Creator",
+    "subtitle": "Engineering real-world solutions with AI, creativity, and heart."
+  },
+  "about": {
+    "title": "About Me",
+    "content": "Passionate AI engineer and aspiring database administrator with hands-on experience in Hugging Face, LangChain, Gradio, SQL, UiPath, and pandas. I specialize in building intelligent systems and automating data workflows — merging data integrity with smart automation."
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      "Python, TensorFlow, LangChain, Hugging Face",
+      "Database: SQL, Oracle, UiPath, pandas",
+      "Web Dev: HTML, CSS, Responsive Design",
+      "Project Management, Prompt Engineering"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "title": "Movie AI: Script-based Scene Generator with Gradio",
+        "description": "A tool that generates movie scenes from scripts using AI.",
+        "link": ""
+      },
+      {
+        "title": "Pharma AI+: Medicine Verification with Vision Models",
+        "description": "A tool that verifies medicines using vision models.",
+        "link": ""
+      },
+      {
+        "title": "Blog: TechLearning17",
+        "description": "A blog where I share my knowledge and experience.",
+        "link": "https://techlearning17.blogspot.com"
+      }
+    ]
+  },
+  "achievements": {
+    "title": "Achievements",
+    "items": [
+        "AICTE-Certified Internship: GenAI with LangChain & Hugging Face",
+        "Custom GenAI Tools Built: Chat with PDFs, Resume Assistant, Q&A Bots",
+        "Certified Courses: Python Fundamentals, PHP+MySQL, JS Projects",
+        "Creator — TechLearning17: Published insights and tutorials for developers",
+        "Automation & Database Skills: SQL, pandas, Oracle, UiPath workflows",
+        "Scene Generator Lead: Gradio interface for cinematic AI + script logic"
+    ]
+  },
+  "contact": {
+    "title": "Contact Me",
+    "email": "vyas.sk17@gmail.com",
+    "social": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/veeda241"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/vyas-s-veeda/"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/veeda_241/"
+      }
+    ]
+  }
+}
