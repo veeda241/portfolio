@@ -1,40 +1,54 @@
-
 import React from 'react';
 import styled from 'styled-components';
 import Header from './components/Header';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Achievements from './components/Achievements';
-import Contact from './components/Contact';
-import ParticlesComponent from './components/Particles';
 import Navbar from './components/Navbar';
 import portfolioData from './portfolioData.json';
+import SocialLinks from './components/SocialLinks';
+import profileImage from './assets/profile.png';
+import AboutSection from './components/AboutSection';
+import NewSkills from './components/NewSkills';
 
-const AppWrapper = styled.div`
-  color: #f8f8f8;
-  font-family: 'Montserrat', sans-serif;
+const MainAppWrapper = styled.div`
+  /* This can be the main container for the single page app */
 `;
 
-const Main = styled.main`
+const AppWrapper = styled.div`
+  display: flex;
+  height: 100vh;
+`;
+
+const LeftPanel = styled.div`
+  width: 50%;
+  background-color: #0d5d5d;
+  padding: 40px;
+  color: white;
+`;
+
+const RightPanel = styled.div`
+  width: 50%;
+  background-image: url(${profileImage});
+  background-size: cover;
+  background-position: center;
   position: relative;
-  z-index: 1;
 `;
 
 const App: React.FC = () => {
   return (
-    <AppWrapper>
-      <ParticlesComponent />
-      <Navbar />
-      <Main>
-        <Header {...portfolioData.header} />
-        <About {...portfolioData.about} />
-        <Skills {...portfolioData.skills} />
-        <Projects {...portfolioData.projects} />
-        <Achievements {...portfolioData.achievements} />
-        <Contact {...portfolioData.contact} />
-      </Main>
-    </AppWrapper>
+    <MainAppWrapper>
+      <AppWrapper id="home">
+        <LeftPanel>
+          <Navbar />
+          <Header {...portfolioData.header} />
+        </LeftPanel>
+        <RightPanel>
+          <SocialLinks />
+        </RightPanel>
+      </AppWrapper>
+      <div id="about">
+        <AboutSection />
+      </div>
+      <NewSkills />
+    </MainAppWrapper>
   );
 };
 

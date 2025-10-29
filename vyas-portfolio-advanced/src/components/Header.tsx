@@ -1,20 +1,34 @@
-
 import React from 'react';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.header`
-  text-align: center;
-  padding: 120px 20px 60px;
+  text-align: left;
+  margin-top: 100px;
 `;
 
 const Title = styled.h1`
-  font-size: 3.5em;
+  font-size: 5em;
   font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  color: white;
+
+  @media (max-width: 768px) {
+    font-size: 3em;
+  }
+
+  span {
+    color: #f5a623;
+  }
 `;
 
 const Subtitle = styled.p`
   font-size: 1.2em;
-  color: #ffd700;
+  color: white;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 interface HeaderProps {
@@ -25,7 +39,11 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   return (
     <HeaderWrapper>
-      <Title>{title}</Title>
+      <Title>
+        <span>Hey, I'm</span>
+        <br />
+        {title}
+      </Title>
       <Subtitle>{subtitle}</Subtitle>
     </HeaderWrapper>
   );

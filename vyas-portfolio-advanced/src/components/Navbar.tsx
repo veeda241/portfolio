@@ -1,48 +1,56 @@
-
 import React from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(0,0,0,0.85);
-  padding: 10px 0;
-  z-index: 1000;
-  text-align: center;
+  background: rgba(44, 62, 80, 0.5);
+  padding: 20px 40px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const NavTitle = styled.div`
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #f5a623;
+  margin: 0;
 `;
 
 const NavList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
 `;
 
 const NavItem = styled.li`
-  display: inline-block;
-  margin: 0 20px;
+  margin-right: 20px;
 `;
 
 const NavLink = styled.a`
-  color: #ffd700;
+  color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 1em;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #00ffd5;
+    color: #f5a623;
   }
 `;
 
 const Navbar: React.FC = () => {
   return (
     <Nav>
+      <div>
+        <NavTitle>Vyas</NavTitle>
+      </div>
       <NavList>
+        <NavItem><NavLink href="#top">Home</NavLink></NavItem>
         <NavItem><NavLink href="#about">About</NavLink></NavItem>
-        <NavItem><NavLink href="#skills">Skills</NavLink></NavItem>
-        <NavItem><NavLink href="#projects">Projects</NavLink></NavItem>
-        <NavItem><NavLink href="#achievements">Achievements</NavLink></NavItem>
-        <NavItem><NavLink href="#contact">Contact</NavLink></NavItem>
       </NavList>
     </Nav>
   );
