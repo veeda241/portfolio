@@ -18,7 +18,7 @@ const Title = styled.h1`
   }
 
   span {
-    color: #f5a623;
+    color: #90ee90;
   }
 `;
 

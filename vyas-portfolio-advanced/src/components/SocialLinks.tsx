@@ -11,7 +11,7 @@ const SocialLinksWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(245, 166, 35, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 15px 10px;
   border-radius: 10px 0 0 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -19,13 +19,13 @@ const SocialLinksWrapper = styled.div`
 `;
 
 const SocialLink = styled.a`
-  color: black;
+  color: white;
   font-size: 1.5em;
   margin: 10px 0;
   transition: color 0.3s ease;
 
   &:hover {
-    color: white;
+color: #90ee90;
   }
 `;
 

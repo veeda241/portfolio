@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  background: rgba(44, 62, 80, 0.5);
+  background: rgba(255, 255, 255, 0.1);
   padding: 20px 40px;
   border-radius: 12px;
   backdrop-filter: blur(5px);
@@ -15,8 +15,7 @@ const Nav = styled.nav`
 
 const NavTitle = styled.div`
   font-weight: bold;
-  font-size: 1.5em;
-  color: #f5a623;
+  color: #90ee90;
   margin: 0;
 `;
 
@@ -38,7 +37,7 @@ const NavLink = styled.a`
   transition: color 0.3s ease;
 
   &:hover {
-    color: #f5a623;
+    color: #90ee90;
   }
 `;
 
@@ -51,6 +50,7 @@ const Navbar: React.FC = () => {
       <NavList>
         <NavItem><NavLink href="#top">Home</NavLink></NavItem>
         <NavItem><NavLink href="#about">About</NavLink></NavItem>
+        <NavItem><NavLink href="#blog">Blog</NavLink></NavItem>
       </NavList>
     </Nav>
   );

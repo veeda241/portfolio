@@ -16,7 +16,7 @@ const ParticlesComponent: React.FC = () => {
       options={{
         background: {
           color: {
-            value: "#1a1a2e",
+            value: "transparent",
           },
         },
         fpsLimit: 60,

@@ -7,7 +7,7 @@ import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
 const AboutSectionWrapper = styled.section`
   padding: 100px 40px;
-  background: linear-gradient(45deg, #2c3e50, #4ca1af);
+  background: linear-gradient(45deg, #4ca1af, #1c3a5e, #2e8b57);
   color: white;
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@ const SocialLinks = styled.div`
     margin-right: 20px;
     transition: color 0.3s ease;
     &:hover {
-      color: #f5a623;
+      color: #90ee90;
     }
   }
 `;
@@ -85,7 +85,8 @@ const AboutSection: React.FC = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+        drag
+        dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
       >
         <ImageWrapper>
           <ProfileImage src={profileImage} alt="Vyas" />

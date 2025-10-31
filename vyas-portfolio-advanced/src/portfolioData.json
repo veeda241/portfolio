@@ -27,12 +27,20 @@
       {
         "title": "Nova AI",
         "description": "Developed and led Nova AI, a project leveraging Python and NLP to automate high-quality content generation. This initiative increased content output by 40% and significantly reduced production time, boosting user engagement.",
-        "link": ""
+        "link": "https://github.com/veeda241/NOVA-",
+        "image": "nova_ai.png"
       },
       {
-        "title": "Personal Portfolio Website",
+        "title": "Portfolio",
         "description": "This personal portfolio, built with React and TypeScript, showcases my projects, skills, and achievements in AI/ML and software development. It features a modern, responsive design with interactive elements.",
-        "link": "https://github.com/veeda241/vyas-portfolio-advanced"
+        "link": "https://github.com/veeda241/vyas-portfolio-advanced",
+        "image": "profile.png"
+      },
+      {
+        "title": "StudyBuddy Pro",
+        "description": "StudyBuddy Pro is a personal productivity and learning companion designed to help students focus, learn effectively, and stay motivated through gamification. This application features a local-first architecture, utilizing a React frontend and a Node.js Express backend with SQLite for data storage.",
+        "link": "https://github.com/veeda241/studybuddy-pro",
+        "image": "gans_cnns.png"
       }
     ]
   },

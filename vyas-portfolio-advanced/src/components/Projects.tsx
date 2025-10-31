@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import ProjectCarousel from './ProjectCarousel';
+import ProjectGrid from './ProjectGrid';
+import portfolioData from '../portfolioData.json';
 
 const SectionWrapper = styled(motion.section)`
-  background-color: rgba(0,0,0,0.6);
+  background: linear-gradient(45deg, #4ca1af, #1c3a5e, #2e8b57);
   border-radius: 12px;
   padding: 40px;
   margin: 30px auto;
-  max-width: 800px;
+  max-width: 1000px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 `;
 
@@ -34,7 +35,7 @@ const Projects: React.FC<ProjectsProps> = ({ title }) => {
       viewport={{ once: true }}
     >
       <SectionTitle>{title}</SectionTitle>
-      <ProjectCarousel />
+      <ProjectGrid items={portfolioData.projects.items} />
     </SectionWrapper>
   );
 };
