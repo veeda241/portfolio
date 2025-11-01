@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import novaAiImage from '../assets/nova_ai.png';
 import profileImage from '../assets/profile.png';
 import gansCnnsImage from '../assets/gans_cnns.png';
-import studyBuddyProImage from '../assets/Gemini_Generated_Image_feea4feea4feea4f (1).png';
+import studyBuddyProImage from '../assets/Gemini_Generated_Image_feea4feea4feea4f.png';
 
 const projectImages: { [key: string]: string } = {
   "nova_ai.png": novaAiImage,
   "profile.png": profileImage,
   "gans_cnns.png": gansCnnsImage,
-  "Gemini_Generated_Image_feea4feea4feea4f (1).png": studyBuddyProImage,
+  "Gemini_Generated_Image_feea4feea4feea4f.png": studyBuddyProImage,
 };
 
 const ProjectShowcaseContainer = styled.div`

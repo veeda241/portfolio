@@ -12,6 +12,7 @@ import Skills from './components/Skills';
 import ParticlesComponent from './components/Particles';
 import Blog from './components/Blog';
 import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 const MainAppWrapper = styled.div`
   /* This can be the main container for the single page app */
@@ -71,6 +72,7 @@ const App: React.FC = () => {
           <Skills />
           <Projects {...portfolioData.projects} />
           <Blog />
+		  <Footer />
         </>
       )}
     </MainAppWrapper>
