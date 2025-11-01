@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import ProjectGrid from './ProjectGrid';
+import ProjectShowcase from './ProjectShowcase';
 import portfolioData from '../portfolioData.json';
 
 const SectionWrapper = styled(motion.section)`
@@ -9,7 +9,6 @@ const SectionWrapper = styled(motion.section)`
   border-radius: 12px;
   padding: 40px;
   margin: 30px auto;
-  max-width: 1000px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 `;
 
@@ -35,7 +34,7 @@ const Projects: React.FC<ProjectsProps> = ({ title }) => {
       viewport={{ once: true }}
     >
       <SectionTitle>{title}</SectionTitle>
-      <ProjectGrid items={portfolioData.projects.items} />
+      <ProjectShowcase items={portfolioData.projects.items} />
     </SectionWrapper>
   );
 };
