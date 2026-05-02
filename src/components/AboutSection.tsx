@@ -15,69 +15,52 @@ const glowRing = keyframes`
 `;
 
 const AboutSectionWrapper = styled.section`
-  padding: 100px 40px;
-  background: #060a12;
-  color: white;
+  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]};
+  background: ${props => props.theme.colors.surface.base};
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
   }
 `;
-
-
 
 const AboutCard = styled(motion.div)`
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 20px;
-  padding: 48px;
-  max-width: 900px;
-  border: 1px solid rgba(76, 161, 175, 0.1);
+  background: ${props => props.theme.colors.surface.muted};
+  border-radius: ${props => props.theme.radius.md};
+  padding: ${props => props.theme.space[7]};
+  max-width: 1000px;
+  border: 1px solid ${props => props.theme.colors.border.default};
   text-align: left;
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 20px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(76,161,175,0.2), transparent, rgba(144,238,144,0.2));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
+  box-shadow: ${props => props.theme.shadows[3]};
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 32px 24px;
+    padding: ${props => props.theme.space[6]};
     text-align: center;
   }
 `;
 
 const ImageWrapper = styled.div`
-  flex: 0 0 200px;
-  height: 200px;
-  border-radius: 50%;
+  flex: 0 0 240px;
+  height: 240px;
+  border-radius: ${props => props.theme.radius.md};
   overflow: hidden;
-  margin-right: 40px;
-  border: 2px solid rgba(76, 161, 175, 0.3);
-  animation: ${glowRing} 3s ease-in-out infinite;
+  margin-right: ${props => props.theme.space[6]};
+  border: 1px solid ${props => props.theme.colors.border.default};
   position: relative;
 
   @media (max-width: 768px) {
     margin-right: 0;
-    margin-bottom: 24px;
-    flex: 0 0 160px;
-    height: 160px;
+    margin-bottom: ${props => props.theme.space[4]};
+    flex: 0 0 200px;
+    height: 200px;
   }
 `;
 
@@ -89,52 +72,54 @@ const ProfileImage = styled.img`
 
 const TextContent = styled.div`
   h2 {
-    font-size: 2em;
+    font-family: ${props => props.theme.fonts.primary};
+    font-size: 2.5em;
     margin-top: 0;
-    margin-bottom: 8px;
-    font-weight: 700;
-    color: white;
+    margin-bottom: ${props => props.theme.space[3]};
+    color: ${props => props.theme.colors.text.primary};
   }
   p {
-    font-size: 0.95em;
+    font-family: ${props => props.theme.fonts.secondary};
+    font-size: 1.05em;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.55);
+    color: ${props => props.theme.colors.text.secondary};
   }
 `;
 
 const RoleLabel = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7em;
-  color: #4ca1af;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.85em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.accent.default};
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: ${props => props.theme.space[2]};
   display: block;
 `;
 
 const SocialLinksRow = styled.div`
-  margin-top: 24px;
+  margin-top: ${props => props.theme.space[4]};
   display: flex;
-  gap: 12px;
+  gap: ${props => props.theme.space[3]};
 
   @media (max-width: 768px) {
     justify-content: center;
   }
 
   a {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 1.2em;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(76,161,175,0.1);
-    transition: all 0.3s ease;
+    color: ${props => props.theme.colors.text.secondary};
+    font-size: 1.4em;
+    padding: ${props => props.theme.space[2]};
+    border-radius: ${props => props.theme.radius.sm};
+    border: 1px solid ${props => props.theme.colors.border.default};
+    transition: all ${props => props.theme.motion.fast} ease;
     display: flex;
     align-items: center;
 
     &:hover {
-      color: #90ee90;
-      border-color: rgba(144,238,144,0.3);
-      background: rgba(144, 238, 144, 0.05);
+      color: ${props => props.theme.colors.accent.default};
+      border-color: ${props => props.theme.colors.accent.default};
+      background: rgba(194, 164, 255, 0.05);
       transform: translateY(-2px);
     }
   }
@@ -142,34 +127,35 @@ const SocialLinksRow = styled.div`
 
 const BioStats = styled.div`
   display: flex;
-  gap: 24px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(76,161,175,0.1);
+  gap: ${props => props.theme.space[6]};
+  margin-top: ${props => props.theme.space[4]};
+  padding-top: ${props => props.theme.space[4]};
+  border-top: 1px solid ${props => props.theme.colors.border.default};
 
   @media (max-width: 768px) {
     justify-content: center;
     flex-wrap: wrap;
+    gap: ${props => props.theme.space[4]};
   }
 `;
 
 const StatItem = styled.div`
-  text-align: center;
+  text-align: left;
 `;
 
 const StatValue = styled.div`
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #90ee90;
-  font-family: 'JetBrains Mono', monospace;
+  font-size: 2em;
+  font-weight: 900;
+  color: ${props => props.theme.colors.text.primary};
+  font-family: ${props => props.theme.fonts.primary};
 `;
 
 const StatLabel = styled.div`
-  font-size: 0.7em;
-  color: rgba(255,255,255,0.4);
+  font-size: 0.8em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.secondary};
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 4px;
 `;
 
 const AboutSection: React.FC = () => {

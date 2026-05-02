@@ -15,141 +15,127 @@ const float = keyframes`
 `;
 
 const SkillsWrapper = styled.section`
-  padding: 100px 40px;
-  background: #060a12;
-  color: #fff;
+  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]};
+  background: ${props => props.theme.colors.surface.base};
+  color: ${props => props.theme.colors.text.primary};
   text-align: center;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
   }
 `;
 
 const SkillsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  max-width: 1000px;
+  gap: ${props => props.theme.space[4]};
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
 const SkillCard = styled(motion.div) <{ isSelected: boolean }>`
   background: ${props => props.isSelected
-    ? 'rgba(76, 161, 175, 0.08)'
-    : 'rgba(255, 255, 255, 0.015)'};
+    ? props.theme.colors.surface.muted
+    : 'rgba(255, 255, 255, 0.02)'};
   border: 1px solid ${props => props.isSelected
-    ? 'rgba(76, 161, 175, 0.35)'
-    : 'rgba(255, 255, 255, 0.04)'};
-  border-radius: 12px;
-  padding: 28px 20px;
+    ? props.theme.colors.accent.default
+    : props.theme.colors.border.default};
+  border-radius: ${props => props.theme.radius.md};
+  padding: ${props => props.theme.space[5]};
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: ${props => props.theme.space[3]};
   position: relative;
   overflow: hidden;
-  transition: border-color 0.3s ease, background 0.3s ease;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: ${props => props.isSelected
-    ? 'linear-gradient(90deg, #4ca1af, #90ee90)'
-    : 'transparent'};
-    transition: background 0.3s ease;
-  }
+  transition: all ${props => props.theme.motion.normal} cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.isSelected ? props.theme.shadows[3] : 'none'};
 
   &:hover {
-    border-color: rgba(76, 161, 175, 0.25);
-    background: rgba(76, 161, 175, 0.04);
+    border-color: ${props => props.theme.colors.accent.default};
+    background: ${props => props.theme.colors.surface.muted};
+    transform: translateY(-4px);
   }
 `;
 
 const SkillIcon = styled.div<{ isSelected: boolean }>`
-  font-size: 2em;
-  color: ${props => props.isSelected ? '#90ee90' : 'rgba(255, 255, 255, 0.35)'};
-  transition: all 0.3s ease;
-  ${props => props.isSelected && css`animation: ${float} 2s ease-in-out infinite;`}
+  font-size: 2.5em;
+  color: ${props => props.isSelected ? props.theme.colors.accent.default : props.theme.colors.text.secondary};
+  transition: all ${props => props.theme.motion.normal} ease;
 `;
 
 const SkillTitle = styled.h3`
-  font-size: 0.85em;
-  font-weight: 600;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 1.1em;
+  font-weight: 700;
   margin: 0;
-  color: rgba(255, 255, 255, 0.85);
+  color: ${props => props.theme.colors.text.primary};
+  text-transform: uppercase;
 `;
 
 const SkillLevel = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6em;
-  color: rgba(76,161,175,0.5);
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.75em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.tertiary};
   text-transform: uppercase;
   letter-spacing: 1px;
 `;
 
 const DescriptionContainer = styled(motion.div)`
   text-align: left;
-  max-width: 800px;
-  margin: 40px auto 0;
-  padding: 32px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(76, 161, 175, 0.12);
-  border-radius: 12px;
+  max-width: 900px;
+  margin: ${props => props.theme.space[6]} auto 0;
+  padding: ${props => props.theme.space[6]};
+  background: ${props => props.theme.colors.surface.muted};
+  border: 1px solid ${props => props.theme.colors.border.default};
+  border-radius: ${props => props.theme.radius.md};
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: 20%;
-    right: 20%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(144,238,144,0.3), transparent);
-  }
+  box-shadow: ${props => props.theme.shadows[3]};
 `;
 
 const DescHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: ${props => props.theme.space[3]};
+  margin-bottom: ${props => props.theme.space[3]};
 `;
 
 const DescIcon = styled.div`
-  font-size: 1.5em;
-  color: #90ee90;
+  font-size: 1.8em;
+  color: ${props => props.theme.colors.accent.default};
 `;
 
 const DescTitle = styled.h3`
-  font-size: 1.2em;
-  font-weight: 700;
-  color: white;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 1.5em;
+  font-weight: 900;
+  color: ${props => props.theme.colors.text.primary};
   margin: 0;
 `;
 
 const DescText = styled.p`
-  font-size: 0.9em;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 1.05em;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 12px;
+  color: ${props => props.theme.colors.text.secondary};
+  margin-bottom: ${props => props.theme.space[3]};
 `;
 
 const ExpTag = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72em;
-  padding: 4px 10px;
-  background: rgba(76,161,175,0.08);
-  border: 1px solid rgba(76,161,175,0.15);
-  border-radius: 4px;
-  color: #4ca1af;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 6px 14px;
+  background: rgba(194, 164, 255, 0.1);
+  border: 1px solid ${props => props.theme.colors.accent.default};
+  border-radius: ${props => props.theme.radius.sm};
+  color: ${props => props.theme.colors.accent.default};
   display: inline-block;
+  text-transform: uppercase;
 `;
 
 const skills = [

@@ -9,131 +9,111 @@ import AnimatedSectionTitle from './AnimatedSectionTitle';
 
 
 const BlogWrapper = styled.section`
-  padding: 100px 40px;
-  background: #060a12;
-  color: white;
+  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]};
+  background: ${props => props.theme.colors.surface.base};
+  color: ${props => props.theme.colors.text.primary};
   text-align: center;
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
   }
 `;
 
-
-
 const BlogPostsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: ${props => props.theme.space[5]};
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
 const BlogPostCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
+  background: ${props => props.theme.colors.surface.muted};
+  border: 1px solid ${props => props.theme.colors.border.default};
+  border-radius: ${props => props.theme.radius.md};
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   position: relative;
+  transition: all ${props => props.theme.motion.normal} cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.theme.shadows[2]};
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 12px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(76,161,175,0.2), transparent, rgba(144,238,144,0.2));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  &:hover::before {
-    opacity: 1;
+  &:hover {
+    border-color: ${props => props.theme.colors.accent.default};
+    transform: translateY(-8px);
+    box-shadow: ${props => props.theme.shadows[3]};
   }
 `;
 
 const BlogPostImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: linear-gradient(to top, rgba(6,10,18,1), transparent);
-  }
+  height: 200px;
 `;
 
 const BlogPostImage = styled.img`
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform ${props => props.theme.motion.normal} ease;
 
   ${BlogPostCard}:hover & {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 `;
 
 const BlogPostContent = styled.div`
-  padding: 20px 24px 24px;
+  padding: ${props => props.theme.space[5]};
 `;
 
 const BlogPostTitle = styled.h3`
-  font-size: 1.1em;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: white;
-  line-height: 1.4;
-  transition: color 0.3s ease;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 1.25em;
+  font-weight: 900;
+  margin-bottom: ${props => props.theme.space[2]};
+  color: ${props => props.theme.colors.text.primary};
+  line-height: 1.3;
+  text-transform: uppercase;
+  transition: color ${props => props.theme.motion.fast} ease;
 
   ${BlogPostCard}:hover & {
-    color: #90ee90;
+    color: ${props => props.theme.colors.accent.default};
   }
 `;
 
 const BlogPostDescription = styled.p`
-  font-size: 0.85em;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.45);
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: ${props => props.theme.colors.text.secondary};
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-bottom: ${props => props.theme.space[4]};
 `;
 
 const ReadMore = styled.span`
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 16px;
-  font-family: 'JetBrains Mono', monospace;
-  color: #4ca1af;
-  font-size: 0.72em;
-  font-weight: 600;
-  letter-spacing: 2px;
+  gap: ${props => props.theme.space[2]};
+  font-family: ${props => props.theme.fonts.secondary};
+  color: ${props => props.theme.colors.accent.default};
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  transition: all 0.3s ease;
+  transition: all ${props => props.theme.motion.fast} ease;
 
   &::after {
     content: '→';
-    transition: transform 0.3s ease;
+    transition: transform ${props => props.theme.motion.fast} ease;
   }
 
   ${BlogPostCard}:hover & {
-    color: #90ee90;
-    &::after { transform: translateX(4px); }
+    &::after { transform: translateX(6px); }
   }
 `;
 

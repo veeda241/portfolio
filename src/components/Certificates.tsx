@@ -39,68 +39,39 @@ const typeConfig: { [key: string]: { label: string; color: string; icon: React.R
 
 /* ── Styled Components ── */
 const SectionWrapper = styled.section`
-  padding: 100px 40px;
-  background: #060a12;
-  color: white;
+  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]};
+  background: ${props => props.theme.colors.surface.base};
+  color: ${props => props.theme.colors.text.primary};
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
   }
 `;
 
 const CertsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: ${props => props.theme.space[4]};
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
 const CertCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  padding: 28px 24px;
+  background: ${props => props.theme.colors.surface.muted};
+  border: 1px solid ${props => props.theme.colors.border.default};
+  border-radius: ${props => props.theme.radius.md};
+  padding: ${props => props.theme.space[6]};
   position: relative;
   overflow: hidden;
-  cursor: default;
+  transition: all ${props => props.theme.motion.normal} cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.theme.shadows[2]};
 
-  /* Gradient border reveal on hover */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 14px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(76,161,175,0.25), transparent 50%, rgba(144,238,144,0.25));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
-
-  /* Sweep light */
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(76,161,175,0.04), transparent);
-    transition: left 0.6s ease;
-  }
-
-  &:hover::after {
-    left: 100%;
+  &:hover {
+    border-color: ${props => props.theme.colors.accent.default};
+    transform: translateY(-5px);
+    box-shadow: ${props => props.theme.shadows[3]};
   }
 `;
 
@@ -108,94 +79,73 @@ const CardHeader = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: ${props => props.theme.space[4]};
 `;
 
 const IconCircle = styled.div<{ accentColor: string }>`
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: ${(p) => p.accentColor}12;
-  border: 1px solid ${(p) => p.accentColor}25;
+  width: 52px;
+  height: 52px;
+  border-radius: ${props => props.theme.radius.sm};
+  background: rgba(194, 164, 255, 0.1);
+  border: 1px solid ${props => props.theme.colors.accent.default};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15em;
-  color: ${(p) => p.accentColor};
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-
-  ${CertCard}:hover & {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px ${(p) => p.accentColor}20;
-  }
+  font-size: 1.4em;
+  color: ${props => props.theme.colors.accent.default};
+  transition: all ${props => props.theme.motion.fast} ease;
 `;
 
 const TypeBadge = styled.span<{ badgeColor: string }>`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6em;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: ${(p) => p.badgeColor}10;
-  color: ${(p) => p.badgeColor};
-  border: 1px solid ${(p) => p.badgeColor}20;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.75em;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(194, 164, 255, 0.08);
+  color: ${props => props.theme.colors.accent.default};
+  border: 1px solid rgba(194, 164, 255, 0.2);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
-  gap: 4px;
-  position: relative;
-  z-index: 1;
+  gap: 6px;
 `;
 
 const CertTitle = styled.h3`
-  font-size: 1.05em;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 6px;
-  line-height: 1.35;
-  position: relative;
-  z-index: 1;
-  transition: color 0.3s ease;
-
-  ${CertCard}:hover & {
-    color: #90ee90;
-  }
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 1.25em;
+  font-weight: 900;
+  color: ${props => props.theme.colors.text.primary};
+  margin-bottom: ${props => props.theme.space[1]};
+  line-height: 1.2;
+  text-transform: uppercase;
 `;
 
 const CertIssuer = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72em;
-  color: rgba(76, 161, 175, 0.7);
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.9em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.tertiary};
   display: block;
-  margin-bottom: 8px;
-  position: relative;
-  z-index: 1;
+  margin-bottom: ${props => props.theme.space[2]};
 `;
 
 const CertDescription = styled.p`
-  font-size: 0.78em;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.38);
-  margin-bottom: 0;
-  position: relative;
-  z-index: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: ${props => props.theme.colors.text.secondary};
+  margin-bottom: ${props => props.theme.space[3]};
 `;
 
 const CertDate = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62em;
-  color: rgba(255, 255, 255, 0.22);
-  position: relative;
-  z-index: 1;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.85em;
+  font-weight: 600;
+  color: ${props => props.theme.colors.text.inverse};
   display: block;
-  margin-top: 12px;
+  margin-top: ${props => props.theme.space[3]};
   letter-spacing: 1px;
 `;
 

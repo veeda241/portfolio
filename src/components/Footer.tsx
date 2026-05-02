@@ -9,65 +9,56 @@ const pulse = keyframes`
 `;
 
 const FooterWrapper = styled.footer`
-  background: #040710;
-  padding: 64px 40px 32px;
-  color: white;
+  background: ${props => props.theme.colors.surface.muted};
+  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]} ${props => props.theme.space[6]};
+  color: ${props => props.theme.colors.text.primary};
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(76, 161, 175, 0.25), transparent);
-  }
+  border-top: 1px solid ${props => props.theme.colors.border.default};
 
   @media (max-width: 768px) {
-    padding: 40px 20px 24px;
+    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
   }
 `;
 
 const FooterContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto 48px;
+  gap: ${props => props.theme.space[6]};
+  max-width: 1200px;
+  margin: 0 auto ${props => props.theme.space[6]};
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: ${props => props.theme.space[5]};
     text-align: center;
   }
 `;
 
 const FooterSection = styled.div`
   h4 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72em;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #4ca1af;
+    font-family: ${props => props.theme.fonts.primary};
+    font-size: 0.85em;
+    font-weight: 700;
+    margin-bottom: ${props => props.theme.space[4]};
+    color: ${props => props.theme.colors.accent.default};
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
   }
 `;
 
 const FooterLink = styled.a`
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.4);
+  gap: ${props => props.theme.space[2]};
+  color: ${props => props.theme.colors.text.secondary};
   text-decoration: none;
-  margin-bottom: 10px;
-  font-size: 0.88em;
-  transition: all 0.3s ease;
-  padding: 4px 0;
+  margin-bottom: ${props => props.theme.space[2]};
+  font-size: 0.95em;
+  font-weight: 600;
+  transition: all ${props => props.theme.motion.fast} ease;
 
   &:hover {
-    color: #90ee90;
+    color: ${props => props.theme.colors.accent.default};
     transform: translateX(4px);
   }
 
@@ -79,14 +70,14 @@ const FooterLink = styled.a`
 const ContactItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 14px;
-  font-size: 0.88em;
+  gap: ${props => props.theme.space[3]};
+  color: ${props => props.theme.colors.text.secondary};
+  margin-bottom: ${props => props.theme.space[3]};
+  font-size: 0.95em;
+  font-weight: 600;
 
   svg {
-    color: rgba(76, 161, 175, 0.6);
-    font-size: 0.9em;
+    color: ${props => props.theme.colors.accent.default};
   }
 
   @media (max-width: 768px) {
@@ -95,66 +86,57 @@ const ContactItem = styled.div`
 `;
 
 const QuoteText = styled.p`
+  font-family: ${props => props.theme.fonts.secondary};
   font-style: italic;
-  color: rgba(255, 255, 255, 0.3);
+  color: ${props => props.theme.colors.text.secondary};
   line-height: 1.7;
-  font-size: 0.88em;
-  border-left: 2px solid rgba(76, 161, 175, 0.2);
-  padding-left: 16px;
+  font-size: 0.9em;
+  border-left: 2px solid ${props => props.theme.colors.accent.default};
+  padding-left: ${props => props.theme.space[4]};
 
   @media (max-width: 768px) {
     border-left: none;
-    border-top: 2px solid rgba(76, 161, 175, 0.2);
+    border-top: 2px solid ${props => props.theme.colors.accent.default};
     padding-left: 0;
-    padding-top: 16px;
+    padding-top: ${props => props.theme.space[4]};
   }
 `;
 
 const BottomBar = styled.div`
   text-align: center;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: ${props => props.theme.space[4]};
+  border-top: 1px solid ${props => props.theme.colors.border.default};
 `;
 
 const DesignerText = styled.p`
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 0.78em;
-  margin-bottom: 16px;
-  font-family: 'JetBrains Mono', monospace;
+  color: ${props => props.theme.colors.text.secondary};
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-bottom: ${props => props.theme.space[3]};
+  font-family: ${props => props.theme.fonts.secondary};
+  text-transform: uppercase;
   letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-`;
-
-const StatusDot = styled.span`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #90ee90;
-  animation: ${pulse} 2s ease-in-out infinite;
 `;
 
 const SocialIcons = styled.div`
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: ${props => props.theme.space[3]};
 
   a {
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 1.1em;
+    color: ${props => props.theme.colors.text.secondary};
+    font-size: 1.2em;
     padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.04);
-    transition: all 0.3s ease;
+    border-radius: ${props => props.theme.radius.sm};
+    border: 1px solid ${props => props.theme.colors.border.default};
+    transition: all ${props => props.theme.motion.fast} ease;
     display: flex;
     align-items: center;
 
     &:hover {
-      color: #90ee90;
-      border-color: rgba(144,238,144,0.2);
-      background: rgba(144, 238, 144, 0.04);
+      color: ${props => props.theme.colors.accent.default};
+      border-color: ${props => props.theme.colors.accent.default};
+      background: rgba(194, 164, 255, 0.05);
       transform: translateY(-2px);
     }
   }
@@ -202,7 +184,7 @@ const Footer: React.FC = () => {
       </FooterContainer>
       <BottomBar>
         <DesignerText>
-          <StatusDot /> Designed & Built by Vyas Senthilkumar
+          Designed & Built by Vyas Senthilkumar
         </DesignerText>
         <SocialIcons>
           {portfolioData.contact.social.map((social, index) => (

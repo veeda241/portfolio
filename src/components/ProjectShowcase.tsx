@@ -19,8 +19,8 @@ const projectIcons: { [key: string]: React.ReactElement } = {
 const ProjectShowcaseContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 1000px;
+  gap: ${props => props.theme.space[4]};
+  max-width: 1200px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
@@ -31,47 +31,21 @@ const ProjectShowcaseContainer = styled.div`
 const ProjectItem = styled(motion.a)`
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  padding: 28px;
-  color: white;
+  background: ${props => props.theme.colors.surface.muted};
+  border: 1px solid ${props => props.theme.colors.border.default};
+  border-radius: ${props => props.theme.radius.md};
+  padding: ${props => props.theme.space[6]};
+  color: ${props => props.theme.colors.text.primary};
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  transition: all ${props => props.theme.motion.normal} cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.theme.shadows[2]};
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 14px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(76,161,175,0.2), transparent, rgba(144,238,144,0.2));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(76,161,175,0.03), transparent);
-    transition: left 0.6s ease;
-  }
-
-  &:hover::after {
-    left: 100%;
+  &:hover {
+    border-color: ${props => props.theme.colors.accent.default};
+    transform: translateY(-8px);
+    box-shadow: ${props => props.theme.shadows[3]};
   }
 `;
 
@@ -79,105 +53,87 @@ const ProjectHeader = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: ${props => props.theme.space[3]};
   position: relative;
   z-index: 1;
 `;
 
 const ProjectIconWrapper = styled.div`
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(76,161,175,0.08);
-  border: 1px solid rgba(76,161,175,0.15);
+  width: 52px;
+  height: 52px;
+  border-radius: ${props => props.theme.radius.sm};
+  background: rgba(194, 164, 255, 0.1);
+  border: 1px solid ${props => props.theme.colors.accent.default};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
-  color: #4ca1af;
-  transition: all 0.3s ease;
+  font-size: 1.5em;
+  color: ${props => props.theme.colors.accent.default};
+  transition: all ${props => props.theme.motion.fast} ease;
 
   ${ProjectItem}:hover & {
-    background: rgba(144,238,144,0.1);
-    border-color: rgba(144,238,144,0.25);
-    color: #90ee90;
+    background: ${props => props.theme.colors.accent.default};
+    color: ${props => props.theme.colors.surface.base};
+    transform: rotate(10deg);
   }
 `;
 
 const LinkIcons = styled.div`
   display: flex;
-  gap: 8px;
+  gap: ${props => props.theme.space[2]};
   align-items: center;
 `;
 
 const LinkIcon = styled.span`
-  font-size: 0.85em;
-  color: rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  padding: 4px;
+  font-size: 1.1em;
+  color: ${props => props.theme.colors.text.secondary};
+  transition: all ${props => props.theme.motion.fast} ease;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
 
-  ${ProjectItem}:hover & {
-    color: #90ee90;
+  &:hover {
+    color: ${props => props.theme.colors.accent.default};
+    background: rgba(194, 164, 255, 0.1);
   }
-`;
-
-const ProjectNumber = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6em;
-  color: rgba(76,161,175,0.35);
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-  display: block;
-  position: relative;
-  z-index: 1;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.15em;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: white;
-  line-height: 1.3;
-  position: relative;
-  z-index: 1;
-  transition: color 0.3s ease;
-
-  ${ProjectItem}:hover & {
-    color: #90ee90;
-  }
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 1.4em;
+  font-weight: 900;
+  margin-bottom: ${props => props.theme.space[2]};
+  color: ${props => props.theme.colors.text.primary};
+  line-height: 1.2;
+  text-transform: uppercase;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 0.82em;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.45);
-  margin-bottom: 16px;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: ${props => props.theme.colors.text.secondary};
+  margin-bottom: ${props => props.theme.space[4]};
   flex: 1;
-  position: relative;
-  z-index: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 `;
 
 const ProjectTags = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  position: relative;
-  z-index: 1;
+  gap: ${props => props.theme.space[2]};
 `;
 
 const Tag = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  background: rgba(76, 161, 175, 0.06);
-  color: rgba(76,161,175,0.7);
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 0.65em;
-  font-weight: 500;
-  border: 1px solid rgba(76, 161, 175, 0.1);
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.75em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.tertiary};
+  background: rgba(194, 164, 255, 0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(194, 164, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 `;
 
 interface Project {
@@ -215,7 +171,6 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ items }) => {
               <LinkIcon><FaExternalLinkAlt /></LinkIcon>
             </LinkIcons>
           </ProjectHeader>
-          <ProjectNumber>{"PROJECT_" + String(index + 1).padStart(2, '0')}</ProjectNumber>
           <ProjectTitle>{project.title}</ProjectTitle>
           <ProjectDescription>{project.description}</ProjectDescription>
           <ProjectTags>

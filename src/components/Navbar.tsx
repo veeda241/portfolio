@@ -7,43 +7,48 @@ const pulse = keyframes`
 `;
 
 const Nav = styled.nav<{ scrolled: boolean }>`
-  background: ${props => props.scrolled ? 'rgba(6, 10, 18, 0.92)' : 'rgba(255, 255, 255, 0.04)'};
-  padding: 14px 28px;
-  border-radius: 10px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid ${props => props.scrolled ? 'rgba(76, 161, 175, 0.15)' : 'rgba(255, 255, 255, 0.08)'};
+  position: fixed;
+  top: ${props => props.theme.space[4]};
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  background: ${props => props.scrolled ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.03)'};
+  padding: ${props => props.theme.space[3]} ${props => props.theme.space[6]};
+  border-radius: ${props => props.theme.radius.md};
+  backdrop-filter: blur(20px);
+  border: 1px solid ${props => props.scrolled ? props.theme.colors.border.default : 'rgba(255, 255, 255, 0.1)'};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.4s ease;
-  position: relative;
-  z-index: 100;
+  transition: all ${props => props.theme.motion.normal} cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  box-shadow: ${props => props.scrolled ? props.theme.shadows[3] : 'none'};
+
+  @media (max-width: 768px) {
+    top: 0;
+    width: 100%;
+    border-radius: 0;
+    padding: ${props => props.theme.space[3]} ${props => props.theme.space[4]};
+  }
 `;
 
 const NavBrand = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
-`;
-
-const StatusDot = styled.span`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #90ee90;
-  animation: ${pulse} 2s ease-in-out infinite;
+  gap: ${props => props.theme.space[2]};
 `;
 
 const NavTitle = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  font-size: 1em;
-  background: linear-gradient(135deg, #90ee90, #4ca1af);
+  font-family: ${props => props.theme.fonts.primary};
+  font-weight: 900;
+  font-size: 1.4em;
+  color: ${props => props.theme.colors.text.primary};
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, ${props => props.theme.colors.text.primary} 0%, ${props => props.theme.colors.accent.default} 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 2px;
 `;
 
 const NavList = styled.ul<{ mobileOpen: boolean }>`
@@ -51,62 +56,55 @@ const NavList = styled.ul<{ mobileOpen: boolean }>`
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 4px;
+  gap: ${props => props.theme.space[2]};
 
   @media (max-width: 768px) {
     display: ${props => props.mobileOpen ? 'flex' : 'none'};
     flex-direction: column;
     position: absolute;
-    top: calc(100% + 4px);
+    top: 100%;
     left: 0;
     right: 0;
-    background: rgba(6, 10, 18, 0.96);
-    backdrop-filter: blur(16px);
-    border-radius: 10px;
-    padding: 12px;
-    border: 1px solid rgba(76, 161, 175, 0.15);
-    gap: 2px;
+    background: ${props => props.theme.colors.surface.muted};
+    padding: ${props => props.theme.space[4]};
+    border-bottom: 1px solid ${props => props.theme.colors.border.default};
+    gap: ${props => props.theme.space[3]};
   }
 `;
 
 const NavItem = styled.li``;
 
 const NavLink = styled.a`
-  font-family: 'JetBrains Mono', monospace;
-  color: rgba(255, 255, 255, 0.5);
+  font-family: ${props => props.theme.fonts.secondary};
+  color: ${props => props.theme.colors.text.secondary};
   text-decoration: none;
-  font-size: 0.78em;
-  font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+  font-size: 0.75em;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: ${props => props.theme.radius.sm};
+  transition: all ${props => props.theme.motion.fast} ease;
   display: block;
-  letter-spacing: 1px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid transparent;
 
   &:hover {
-    color: #90ee90;
-    background: rgba(144, 238, 144, 0.06);
+    color: ${props => props.theme.colors.accent.default};
+    background: rgba(194, 164, 255, 0.05);
+    border-color: rgba(194, 164, 255, 0.1);
   }
 `;
 
 const Hamburger = styled.button`
   display: none;
-  background: none;
-  border: 1px solid rgba(76,161,175,0.2);
-  color: rgba(255,255,255,0.6);
-  font-size: 1.2em;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    border-color: rgba(76,161,175,0.4);
-    color: #90ee90;
-  }
-
+  color: ${props => props.theme.colors.text.primary};
+  font-size: 1.5em;
+  padding: 5px;
+  
   @media (max-width: 768px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -125,8 +123,7 @@ const Navbar: React.FC = () => {
   return (
     <Nav scrolled={scrolled}>
       <NavBrand>
-        <StatusDot />
-        <NavTitle>NOVA://VS</NavTitle>
+        <NavTitle>VYAS.S</NavTitle>
       </NavBrand>
       <Hamburger onClick={() => setMobileOpen(!mobileOpen)}>
         {mobileOpen ? '✕' : '☰'}

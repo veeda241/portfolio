@@ -6,13 +6,13 @@ import AnimatedSectionTitle from './AnimatedSectionTitle';
 import portfolioData from '../portfolioData.json';
 
 const SectionWrapper = styled(motion.section)`
-  background: #060a12;
-  padding: 100px 40px;
+  background: ${props => props.theme.colors.surface.base};
+  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]};
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
   }
 `;
 

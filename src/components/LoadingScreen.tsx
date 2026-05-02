@@ -53,23 +53,23 @@ const nodeGlow = keyframes`
 const LoadingWrapper = styled(motion.div)`
   position: fixed;
   inset: 0;
-  background: #060a12;
+  background: ${props => props.theme.colors.surface.base};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   overflow: hidden;
-  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: ${props => props.theme.fonts.secondary};
 `;
 
 const GridOverlay = styled.div`
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(76,161,175,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(76,161,175,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(194, 164, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(194, 164, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
   pointer-events: none;
 `;
 
@@ -85,9 +85,9 @@ const ScanLineOverlay = styled.div`
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(76,161,175,0.4), transparent);
-    animation: ${scanLine} 3s linear infinite;
-    box-shadow: 0 0 20px rgba(76,161,175,0.3);
+    background: linear-gradient(90deg, transparent, ${props => props.theme.colors.accent.default}, transparent);
+    animation: ${scanLine} 4s linear infinite;
+    opacity: 0.2;
   }
 `;
 
@@ -99,8 +99,8 @@ const DataRain = styled.div`
     0deg,
     transparent,
     transparent 2px,
-    rgba(144,238,144,0.6) 2px,
-    rgba(144,238,144,0.6) 4px
+    ${props => props.theme.colors.accent.default} 2px,
+    ${props => props.theme.colors.accent.default} 4px
   );
   background-size: 20px 20px;
   animation: ${dataFlow} 8s linear infinite;
@@ -110,27 +110,28 @@ const DataRain = styled.div`
 /* ─── neural network viz ─── */
 const NeuralNetContainer = styled.div`
   position: relative;
-  width: 320px;
-  height: 200px;
-  margin-bottom: 40px;
+  width: 400px;
+  height: 250px;
+  margin-bottom: ${props => props.theme.space[6]};
 `;
 
 const NeuralNode = styled.div<{ x: number; y: number; delay: number; active: boolean }>`
   position: absolute;
   left: ${p => p.x}px;
   top: ${p => p.y}px;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: ${p => p.active ? '#90ee90' : 'rgba(76,161,175,0.3)'};
+  background: ${p => p.active ? p.theme.colors.accent.default : 'rgba(194, 164, 255, 0.2)'};
   transition: all 0.4s ease;
   animation: ${p => p.active ? css`${nodeGlow} 1.5s ease-in-out infinite` : 'none'};
   animation-delay: ${p => p.delay}s;
 `;
 
 const NeuralConnection = styled.line<{ active: boolean }>`
-  stroke: ${p => p.active ? 'rgba(144,238,144,0.4)' : 'rgba(76,161,175,0.08)'};
-  stroke-width: ${p => p.active ? 1.5 : 0.5};
+  stroke: ${p => p.active ? p.theme.colors.accent.default : 'rgba(194, 164, 255, 0.05)'};
+  stroke-width: ${p => p.active ? 2 : 1};
+  opacity: ${p => p.active ? 0.6 : 0.2};
   transition: all 0.5s ease;
 `;
 
@@ -144,117 +145,95 @@ const NeuralSVG = styled.svg`
 /* ─── core title ─── */
 const CoreTitle = styled.div`
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: ${props => props.theme.space[6]};
   position: relative;
 `;
 
 const NovaText = styled.h1`
-  font-size: 3em;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 5em;
   font-weight: 900;
-  letter-spacing: 12px;
+  letter-spacing: 15px;
   margin: 0;
-  background: linear-gradient(135deg, #4ca1af 0%, #90ee90 50%, #4ca1af 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-
-  &::after {
-    content: 'NOVA';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #4ca1af, #90ee90);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: ${glitch} 3s ease-in-out infinite;
-    opacity: 0.15;
-  }
+  color: ${props => props.theme.colors.text.primary};
+  text-transform: uppercase;
 `;
 
 const SubText = styled.div`
-  font-size: 0.7em;
-  letter-spacing: 6px;
-  color: rgba(76,161,175,0.6);
-  margin-top: 4px;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: ${props => props.theme.colors.accent.default};
+  margin-top: ${props => props.theme.space[1]};
   text-transform: uppercase;
 `;
 
 /* ─── terminal ─── */
 const TerminalContainer = styled.div`
-  width: 500px;
+  width: 600px;
   max-width: 90vw;
-  background: rgba(6,10,18,0.8);
-  border: 1px solid rgba(76,161,175,0.15);
-  border-radius: 8px;
+  background: ${props => props.theme.colors.surface.muted};
+  border: 1px solid ${props => props.theme.colors.border.default};
+  border-radius: ${props => props.theme.radius.md};
   overflow: hidden;
-  margin-bottom: 32px;
+  margin-bottom: ${props => props.theme.space[6]};
+  box-shadow: ${props => props.theme.shadows[3]};
 `;
 
 const TerminalHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  background: rgba(76,161,175,0.05);
-  border-bottom: 1px solid rgba(76,161,175,0.1);
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid ${props => props.theme.colors.border.default};
 `;
 
 const TerminalDot = styled.div<{ color: string }>`
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: ${p => p.color};
-  opacity: 0.7;
 `;
 
 const TerminalTitle = styled.span`
-  font-size: 0.65em;
-  color: rgba(76,161,175,0.5);
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.75em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.tertiary};
   margin-left: 8px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 `;
 
 const TerminalBody = styled.div`
-  padding: 16px;
-  max-height: 180px;
+  padding: 20px;
+  max-height: 200px;
   overflow: hidden;
 `;
 
 const TerminalLine = styled.div<{ type?: string }>`
-  font-size: 0.72em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
   line-height: 1.8;
   animation: ${fadeInUp} 0.3s ease-out both;
   color: ${p => {
     switch (p.type) {
-      case 'success': return '#90ee90';
+      case 'success': return p.theme.colors.accent.default;
       case 'warning': return '#ffd700';
-      case 'info': return '#4ca1af';
-      case 'system': return 'rgba(76,161,175,0.5)';
-      default: return 'rgba(255,255,255,0.5)';
+      case 'info': return p.theme.colors.text.tertiary;
+      case 'system': return p.theme.colors.text.inverse;
+      default: return p.theme.colors.text.secondary;
     }
   }};
-
-  &::before {
-    content: '${p => {
-    switch (p.type) {
-      case 'success': return '✓ ';
-      case 'warning': return '⚡ ';
-      case 'info': return '› ';
-      case 'system': return '$ ';
-      default: return '  ';
-    }
-  }}';
-  }
 `;
 
 const Cursor = styled.span`
   display: inline-block;
-  width: 7px;
-  height: 14px;
-  background: #90ee90;
+  width: 8px;
+  height: 16px;
+  background: ${props => props.theme.colors.accent.default};
   margin-left: 2px;
   animation: ${blink} 0.8s step-end infinite;
   vertical-align: middle;
@@ -262,24 +241,26 @@ const Cursor = styled.span`
 
 /* ─── progress ─── */
 const ProgressContainer = styled.div`
-  width: 500px;
+  width: 600px;
   max-width: 90vw;
 `;
 
 const ProgressLabel = styled.div`
   display: flex;
   justify-content: space-between;
-  font-size: 0.65em;
-  color: rgba(76,161,175,0.5);
-  margin-bottom: 8px;
-  letter-spacing: 2px;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.8em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.text.tertiary};
+  margin-bottom: ${props => props.theme.space[2]};
   text-transform: uppercase;
+  letter-spacing: 1px;
 `;
 
 const ProgressBarOuter = styled.div`
   width: 100%;
-  height: 3px;
-  background: rgba(76,161,175,0.1);
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 2px;
   overflow: hidden;
 `;
@@ -287,21 +268,21 @@ const ProgressBarOuter = styled.div`
 const ProgressBarInner = styled.div<{ width: number }>`
   height: 100%;
   width: ${p => p.width}%;
-  background: linear-gradient(90deg, #4ca1af, #90ee90);
+  background: ${props => props.theme.colors.accent.default};
   border-radius: 2px;
-  transition: width 0.15s linear;
-  box-shadow: 0 0 10px rgba(144,238,144,0.3);
+  transition: width 0.1s linear;
+  box-shadow: 0 0 15px ${props => props.theme.colors.accent.default};
 `;
 
 /* ─── hexagonal spinner ─── */
 const HexSpinner = styled.div`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 30px;
-  border: 1.5px solid rgba(76,161,175,0.2);
-  border-top-color: #4ca1af;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid ${props => props.theme.colors.border.default};
+  border-top-color: ${props => props.theme.colors.accent.default};
   border-radius: 50%;
   animation: ${rotate360} 2s linear infinite;
 `;

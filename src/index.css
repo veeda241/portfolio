@@ -1,4 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Font Families */
+  --font-primary: 'Archivo Black', sans-serif;
+  --font-secondary: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Colors - Moncy Yohannan Palette */
+  --color-text-primary: #eae5ec;
+  --color-text-secondary: #adacac;
+  --color-text-tertiary: #c2a4ff;
+  --color-text-inverse: #c481ff;
+  --color-surface-base: #000000;
+  --color-surface-muted: #050405;
+  --color-surface-raised: #1a1a1a;
+  --color-border-default: #1e293b;
+  
+  /* Accent Colors - Hybrid */
+  --color-accent: #c2a4ff;
+  --color-accent-hover: #c481ff;
+
+  /* Spacing Scale */
+  --space-1: 3px;
+  --space-2: 10px;
+  --space-3: 20px;
+  --space-4: 25px;
+  --space-5: 29.18px;
+  --space-6: 30px;
+  --space-7: 33.4px;
+  --space-8: 50px;
+
+  /* Radius */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
+
+  /* Motion */
+  --motion-instant: 150ms;
+  --motion-fast: 200ms;
+  --motion-normal: 300ms;
+  --motion-slow: 500ms;
+
+  /* Shadows */
+  --shadow-1: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(64, 64, 64) 0px 0px 1px 1px;
+  --shadow-2: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-3: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-4: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+}
 
 * {
   margin: 0;
@@ -8,35 +57,67 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-secondary);
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  background: #060a12;
-  color: #e0e0e0;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-::-webkit-scrollbar-track {
-  background: #060a12;
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--motion-fast) ease;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #4ca1af, #2e8b57);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #5cb8bf, #3ea067);
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
 }
 
 ::selection {
-  background: rgba(76, 161, 175, 0.4);
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-surface-base);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-raised);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

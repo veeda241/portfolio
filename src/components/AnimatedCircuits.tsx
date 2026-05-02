@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import anime from 'animejs';
 
 const SVGContainer = styled.div`
@@ -33,6 +33,7 @@ const ParticleCanvas = styled.div`
 const AnimatedCircuits: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const svgRef = useRef<SVGSVGElement>(null);
+    const theme = useTheme();
 
     useEffect(() => {
         if (!svgRef.current) return;
@@ -116,35 +117,40 @@ const AnimatedCircuits: React.FC = () => {
                     className="circuit-path"
                     d="M0 150 L120 150 L140 170 L250 170"
                     fill="none"
-                    stroke="rgba(76,161,175,0.3)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.2"
                     strokeWidth="0.8"
                 />
                 <path
                     className="circuit-path"
                     d="M600 250 L450 250 L430 270 L350 270"
                     fill="none"
-                    stroke="rgba(144,238,144,0.2)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.1"
                     strokeWidth="0.8"
                 />
                 <path
                     className="circuit-path"
                     d="M0 400 L80 400 L100 380 L200 380 L220 400 L320 400"
                     fill="none"
-                    stroke="rgba(76,161,175,0.25)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.15"
                     strokeWidth="0.8"
                 />
                 <path
                     className="circuit-path"
                     d="M600 550 L500 550 L480 530 L380 530"
                     fill="none"
-                    stroke="rgba(144,238,144,0.15)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.1"
                     strokeWidth="0.8"
                 />
                 <path
                     className="circuit-path"
                     d="M0 650 L150 650 L170 630 L280 630"
                     fill="none"
-                    stroke="rgba(76,161,175,0.2)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.12"
                     strokeWidth="0.8"
                 />
 
@@ -153,27 +159,29 @@ const AnimatedCircuits: React.FC = () => {
                     className="circuit-path"
                     d="M250 170 L250 250 L270 270"
                     fill="none"
-                    stroke="rgba(76,161,175,0.2)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.1"
                     strokeWidth="0.6"
                 />
                 <path
                     className="circuit-path"
                     d="M350 270 L350 380"
                     fill="none"
-                    stroke="rgba(144,238,144,0.15)"
+                    stroke={theme.colors.accent.default}
+                    opacity="0.08"
                     strokeWidth="0.6"
                 />
 
                 {/* Circuit nodes (junction points) */}
-                <circle className="circuit-node" cx="120" cy="150" r="0" fill="#4ca1af" />
-                <circle className="circuit-node" cx="250" cy="170" r="0" fill="#90ee90" />
-                <circle className="circuit-node" cx="450" cy="250" r="0" fill="#4ca1af" />
-                <circle className="circuit-node" cx="350" cy="270" r="0" fill="#90ee90" />
-                <circle className="circuit-node" cx="200" cy="380" r="0" fill="#4ca1af" />
-                <circle className="circuit-node" cx="320" cy="400" r="0" fill="#90ee90" />
-                <circle className="circuit-node" cx="500" cy="550" r="0" fill="#4ca1af" />
-                <circle className="circuit-node" cx="150" cy="650" r="0" fill="#90ee90" />
-                <circle className="circuit-node" cx="280" cy="630" r="0" fill="#4ca1af" />
+                <circle className="circuit-node" cx="120" cy="150" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="250" cy="170" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="450" cy="250" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="350" cy="270" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="200" cy="380" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="320" cy="400" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="500" cy="550" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="150" cy="650" r="0" fill={theme.colors.accent.default} />
+                <circle className="circuit-node" cx="280" cy="630" r="0" fill={theme.colors.accent.default} />
             </CircuitSVG>
             <ParticleCanvas className="particles-container" />
         </SVGContainer>

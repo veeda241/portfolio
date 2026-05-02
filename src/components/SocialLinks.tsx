@@ -15,16 +15,9 @@ const SocialLinksWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: ${props => props.theme.space[1]};
   z-index: 1000;
   animation: ${fadeIn} 0.6s ease-out 1s both;
-
-  &::before, &::after {
-    content: '';
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(180deg, transparent, rgba(76, 161, 175, 0.4), transparent);
-  }
 
   @media (max-width: 768px) {
     position: fixed;
@@ -35,32 +28,28 @@ const SocialLinksWrapper = styled.div`
     transform: none;
     flex-direction: row;
     justify-content: center;
-    background: rgba(10, 15, 26, 0.95);
+    background: ${props => props.theme.colors.surface.muted};
     backdrop-filter: blur(12px);
-    padding: 12px;
-    gap: 20px;
-    border-top: 1px solid rgba(76, 161, 175, 0.2);
-
-    &::before, &::after {
-      display: none;
-    }
+    padding: ${props => props.theme.space[3]};
+    gap: ${props => props.theme.space[5]};
+    border-top: 1px solid ${props => props.theme.colors.border.default};
   }
 `;
 
 const SocialLink = styled.a`
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1.1em;
+  color: ${props => props.theme.colors.text.secondary};
+  font-size: 1.2em;
   padding: 10px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: ${props => props.theme.radius.sm};
+  transition: all ${props => props.theme.motion.normal} ease;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    color: #90ee90;
-    background: rgba(144, 238, 144, 0.08);
-    transform: scale(1.15);
+    color: ${props => props.theme.colors.accent.default};
+    background: rgba(194, 164, 255, 0.08);
+    transform: scale(1.2);
   }
 `;
 

@@ -14,158 +14,112 @@ const glowPulse = keyframes`
 
 const HeaderWrapper = styled.header`
   text-align: left;
-  margin-top: 80px;
-`;
-
-const StatusLine = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  opacity: 0;
-`;
-
-const StatusDot = styled.span`
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #90ee90;
-  box-shadow: 0 0 8px rgba(144,238,144,0.5);
-  animation: ${glowPulse} 2s ease-in-out infinite;
-`;
-
-const StatusText = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75em;
-  color: rgba(76,161,175,0.6);
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  margin-top: ${props => props.theme.space[8]};
 `;
 
 const Greeting = styled.span`
+  font-family: ${props => props.theme.fonts.secondary};
   font-size: 1.1em;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  color: ${props => props.theme.colors.accent.default};
   display: block;
-  margin-bottom: 8px;
-  letter-spacing: 3px;
+  margin-bottom: ${props => props.theme.space[2]};
+  letter-spacing: 2px;
   text-transform: uppercase;
-  font-family: 'JetBrains Mono', monospace;
   opacity: 0;
 `;
 
 const Title = styled.h1`
-  font-size: 4.5em;
-  font-weight: 800;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 5.5em;
+  font-weight: 900;
   margin: 0;
-  line-height: 1.05;
-  margin-bottom: 16px;
+  line-height: 0.9;
+  margin-bottom: ${props => props.theme.space[4]};
+  color: ${props => props.theme.colors.text.primary};
 
   @media (max-width: 768px) {
-    font-size: 2.8em;
+    font-size: 3.2em;
   }
 `;
 
 const TitleLetter = styled.span`
   display: inline-block;
-  background: linear-gradient(135deg, #ffffff 0%, #90ee90 50%, #4ca1af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   opacity: 0;
   transform: translateY(40px);
 `;
 
 const TypewriterContainer = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85em;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.7;
-  max-width: 480px;
-  min-height: 50px;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 1.1em;
+  color: ${props => props.theme.colors.text.secondary};
+  line-height: 1.6;
+  max-width: 550px;
+  min-height: 60px;
   opacity: 0;
 `;
 
 const TypedText = styled.span`
-  color: rgba(255, 255, 255, 0.55);
+  color: ${props => props.theme.colors.text.secondary};
 `;
 
 const CursorBlink = styled.span`
   display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: #90ee90;
-  margin-left: 2px;
+  width: 3px;
+  height: 1.1em;
+  background: ${props => props.theme.colors.accent.default};
+  margin-left: 4px;
   animation: ${blink} 0.8s step-end infinite;
   vertical-align: text-bottom;
 `;
 
-const RoleTag = styled.span`
-  display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8em;
-  padding: 4px 12px;
-  background: rgba(76,161,175,0.1);
-  border: 1px solid rgba(76,161,175,0.2);
-  border-radius: 4px;
-  color: #4ca1af;
-  margin-top: 12px;
-  opacity: 0;
-  transform: scale(0.8);
-`;
-
 const CTAContainer = styled.div`
-  margin-top: 32px;
+  margin-top: ${props => props.theme.space[6]};
   display: flex;
-  gap: 16px;
+  gap: ${props => props.theme.space[4]};
   flex-wrap: wrap;
 `;
 
 const CTAButton = styled.a`
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9em;
-  text-decoration: none;
-  transition: all 0.3s ease;
+  padding: 14px 32px;
+  border-radius: ${props => props.theme.radius.sm};
+  font-weight: 700;
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all ${props => props.theme.motion.normal} cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
 
   &.primary {
-    background: linear-gradient(135deg, #4ca1af, #2e8b57);
-    color: white;
-    border: none;
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+    background: ${props => props.theme.colors.accent.default};
+    color: ${props => props.theme.colors.surface.base};
+    box-shadow: 0 4px 0 0 ${props => props.theme.colors.accent.hover};
 
     &:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 8px 25px rgba(76, 161, 175, 0.35);
-      &::after { opacity: 1; }
+      transform: translateY(-2px);
+      background: ${props => props.theme.colors.accent.hover};
+      box-shadow: 0 6px 20px ${props => props.theme.colors.accent.default}44;
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 0 0 ${props => props.theme.colors.accent.hover};
     }
   }
 
   &.secondary {
     background: transparent;
-    color: white;
-    border: 1px solid rgba(76,161,175,0.3);
+    color: ${props => props.theme.colors.text.primary};
+    border: 2px solid ${props => props.theme.colors.border.default};
 
     &:hover {
-      border-color: #90ee90;
-      color: #90ee90;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 4px 15px rgba(144,238,144,0.1);
+      border-color: ${props => props.theme.colors.accent.default};
+      color: ${props => props.theme.colors.accent.default};
+      transform: translateY(-2px);
     }
   }
 `;
@@ -286,11 +240,7 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
 
   return (
     <HeaderWrapper ref={headerRef}>
-      <StatusLine className="header-status">
-        <StatusDot />
-        <StatusText>System Online</StatusText>
-      </StatusLine>
-      <Greeting className="header-greeting">Hey, I'm</Greeting>
+      <Greeting className="header-greeting">Aspiring AI Engineer</Greeting>
       <TitleWrapper>
         <Title>
           {letters.map((letter, i) => (
@@ -299,33 +249,14 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
             </TitleLetter>
           ))}
         </Title>
-        <UnderlineSVG viewBox="0 0 200 6">
-          <path
-            className="title-underline"
-            ref={underlineRef}
-            d="M0 3 Q50 0 100 3 T200 3"
-            fill="none"
-            stroke="url(#underlineGrad)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient id="underlineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#90ee90" stopOpacity="0.8" />
-              <stop offset="50%" stopColor="#4ca1af" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#90ee90" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </UnderlineSVG>
       </TitleWrapper>
       <TypewriterContainer className="header-typewriter">
         <TypedText>{typedText}</TypedText>
         {isTyping && <CursorBlink />}
       </TypewriterContainer>
-      <RoleTag className="header-role">AI Engineer</RoleTag>
       <CTAContainer>
-        <CTAButton className="primary header-cta" href="#projects">View Projects</CTAButton>
-        <CTAButton className="secondary header-cta" href="#about">About Me</CTAButton>
+        <CTAButton className="primary header-cta" href="#projects">Explore Work</CTAButton>
+        <CTAButton className="secondary header-cta" href="#about">The Story</CTAButton>
       </CTAContainer>
     </HeaderWrapper>
   );

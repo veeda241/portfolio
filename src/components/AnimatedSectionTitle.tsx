@@ -4,29 +4,33 @@ import anime from 'animejs';
 
 const TitleContainer = styled.div`
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: ${props => props.theme.space[7]};
   position: relative;
 `;
 
 const CodeLabel = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75em;
-  color: rgba(76,161,175,0.5);
-  letter-spacing: 3px;
+  font-family: ${props => props.theme.fonts.secondary};
+  font-size: 0.85em;
+  font-weight: 700;
+  color: ${props => props.theme.colors.accent.default};
+  letter-spacing: 2px;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: ${props => props.theme.space[2]};
+  text-transform: uppercase;
   opacity: 0;
 `;
 
 const MainTitle = styled.h2`
-  font-size: 2.5em;
-  font-weight: 700;
-  color: white;
+  font-family: ${props => props.theme.fonts.primary};
+  font-size: 3.5em;
+  font-weight: 900;
+  color: ${props => props.theme.colors.text.primary};
   margin: 0;
   overflow: hidden;
+  text-transform: uppercase;
 
   @media (max-width: 768px) {
-    font-size: 1.8em;
+    font-size: 2.5em;
   }
 `;
 
@@ -40,23 +44,23 @@ const DecoLine = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
+  gap: ${props => props.theme.space[2]};
+  margin-top: ${props => props.theme.space[3]};
   opacity: 0;
 `;
 
 const LineSVG = styled.svg`
-  width: 80px;
+  width: 100px;
   height: 2px;
   overflow: visible;
 `;
 
 const LineDot = styled.div`
-  width: 6px;
-  height: 6px;
-  border: 1px solid rgba(76,161,175,0.4);
+  width: 8px;
+  height: 8px;
+  border: 1px solid ${props => props.theme.colors.accent.default};
   transform: rotate(45deg);
-  background: transparent;
+  background: ${props => props.theme.colors.accent.default};
 `;
 
 interface AnimatedSectionTitleProps {
