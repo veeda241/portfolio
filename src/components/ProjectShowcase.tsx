@@ -1,29 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub, FaRobot, FaTerminal, FaGavel, FaWind, FaFish, FaShieldAlt, FaMoneyBillWave, FaPalette, FaChartBar, FaBookReader } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaRobot, FaShieldAlt, FaBookOpen, FaGlobe, FaFish, FaChartBar } from 'react-icons/fa';
 
 const projectIcons: { [key: string]: React.ReactElement } = {
-  "Nova System AI": <FaRobot />,
-  "NOVA CLI": <FaTerminal />,
-  "Legal Case Law Bot": <FaGavel />,
-  "AQI AI Agent": <FaWind />,
-  "MatsyaN - Fish Recognition": <FaFish />,
-  "SentinelDB": <FaShieldAlt />,
-  "RobinHood Tax System": <FaMoneyBillWave />,
-  "Generative Design": <FaPalette />,
-  "DAC Website": <FaChartBar />,
-  "StudyBuddy Pro": <FaBookReader />,
+  'Nova AI': <FaRobot />,
+  'ExamGuard Pro': <FaShieldAlt />,
+  'StudyBuddy Pro': <FaBookOpen />,
+  'Personal Portfolio': <FaGlobe />,
+  'RobinHood Tax System': <FaChartBar />,
+  'MatsyaN - Fish Recognition': <FaFish />,
 };
 
 const ProjectShowcaseContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${props => props.theme.space[4]};
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 840px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -31,7 +27,10 @@ const ProjectShowcaseContainer = styled.div`
 const ProjectItem = styled(motion.a)`
   display: flex;
   flex-direction: column;
-  background: ${props => props.theme.colors.surface.muted};
+  min-height: 320px;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(194, 164, 255, 0.16), transparent 28%),
+    ${props => props.theme.colors.surface.muted};
   border: 1px solid ${props => props.theme.colors.border.default};
   border-radius: ${props => props.theme.radius.md};
   padding: ${props => props.theme.space[6]};
@@ -45,7 +44,7 @@ const ProjectItem = styled(motion.a)`
   &:hover {
     border-color: ${props => props.theme.colors.accent.default};
     transform: translateY(-8px);
-    box-shadow: ${props => props.theme.shadows[3]};
+    box-shadow: 0 26px 80px rgba(194, 164, 255, 0.13);
   }
 `;
 
@@ -53,21 +52,21 @@ const ProjectHeader = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: ${props => props.theme.space[3]};
+  margin-bottom: ${props => props.theme.space[4]};
   position: relative;
   z-index: 1;
 `;
 
 const ProjectIconWrapper = styled.div`
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border-radius: ${props => props.theme.radius.sm};
   background: rgba(194, 164, 255, 0.1);
   border: 1px solid ${props => props.theme.colors.accent.default};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
+  font-size: 1.55em;
   color: ${props => props.theme.colors.accent.default};
   transition: all ${props => props.theme.motion.fast} ease;
 
@@ -92,26 +91,23 @@ const LinkIcon = styled.span`
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.03);
 
-  &:hover {
+  ${ProjectItem}:hover & {
     color: ${props => props.theme.colors.accent.default};
     background: rgba(194, 164, 255, 0.1);
   }
 `;
 
 const ProjectTitle = styled.h3`
-  font-family: ${props => props.theme.fonts.primary};
-  font-size: 1.4em;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
   font-weight: 900;
-  margin-bottom: ${props => props.theme.space[2]};
+  margin-bottom: ${props => props.theme.space[3]};
   color: ${props => props.theme.colors.text.primary};
-  line-height: 1.2;
-  text-transform: uppercase;
+  line-height: 1.08;
 `;
 
 const ProjectDescription = styled.p`
-  font-family: ${props => props.theme.fonts.secondary};
-  font-size: 0.95em;
-  line-height: 1.6;
+  font-size: 0.98rem;
+  line-height: 1.7;
   color: ${props => props.theme.colors.text.secondary};
   margin-bottom: ${props => props.theme.space[4]};
   flex: 1;
@@ -124,16 +120,15 @@ const ProjectTags = styled.div`
 `;
 
 const Tag = styled.span`
-  font-family: ${props => props.theme.fonts.secondary};
-  font-size: 0.75em;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
   color: ${props => props.theme.colors.text.tertiary};
   background: rgba(194, 164, 255, 0.08);
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding: 5px 12px;
+  border-radius: 999px;
   border: 1px solid rgba(194, 164, 255, 0.2);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.06em;
 `;
 
 interface Project {
@@ -148,11 +143,13 @@ interface ProjectShowcaseProps {
 }
 
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ items }) => {
+  const focusedItems = items;
+
   return (
     <ProjectShowcaseContainer>
-      {items.map((project, index) => (
+      {focusedItems.map((project, index) => (
         <ProjectItem
-          key={index}
+          key={project.title}
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
@@ -163,9 +160,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ items }) => {
           whileHover={{ y: -4, transition: { duration: 0.25 } }}
         >
           <ProjectHeader>
-            <ProjectIconWrapper>
-              {projectIcons[project.title] || <FaGithub />}
-            </ProjectIconWrapper>
+            <ProjectIconWrapper>{projectIcons[project.title] || <FaGithub />}</ProjectIconWrapper>
             <LinkIcons>
               <LinkIcon><FaGithub /></LinkIcon>
               <LinkIcon><FaExternalLinkAlt /></LinkIcon>
@@ -174,8 +169,8 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ items }) => {
           <ProjectTitle>{project.title}</ProjectTitle>
           <ProjectDescription>{project.description}</ProjectDescription>
           <ProjectTags>
-            {project.tags.map((tag, i) => (
-              <Tag key={i}>{tag}</Tag>
+            {project.tags.map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
             ))}
           </ProjectTags>
         </ProjectItem>

@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
   return (
     <Nav scrolled={scrolled}>
       <NavBrand>
-        <NavTitle>VYAS.S</NavTitle>
+        <NavTitle>S.VYAS</NavTitle>
       </NavBrand>
       <Hamburger onClick={() => setMobileOpen(!mobileOpen)}>
         {mobileOpen ? '✕' : '☰'}

@@ -207,21 +207,21 @@ const AboutSection: React.FC = () => {
           <ProfileImage src={profileImage} alt="Vyas" />
         </ImageWrapper>
         <TextContent>
-          <RoleLabel>AI Engineer & Developer</RoleLabel>
+          <RoleLabel>AI/ML Engineer & Full-Stack Developer</RoleLabel>
           <h2>{header.title}</h2>
           <p>{about.content}</p>
           <BioStats ref={statsRef}>
             <StatItem>
-              <StatValue className="stat-value" data-target="10" data-suffix="+">0</StatValue>
-              <StatLabel>Projects</StatLabel>
+              <StatValue className="stat-value" data-target="56" data-suffix="+">0</StatValue>
+              <StatLabel>Repositories</StatLabel>
             </StatItem>
             <StatItem>
-              <StatValue className="stat-value" data-target="3" data-suffix="+">0</StatValue>
+              <StatValue className="stat-value" data-target="10" data-suffix="+">0</StatValue>
               <StatLabel>Certifications</StatLabel>
             </StatItem>
             <StatItem>
-              <StatValue className="stat-value" data-target="1" data-suffix="yr">0</StatValue>
-              <StatLabel>AI/ML Exp</StatLabel>
+              <StatValue className="stat-value" data-target="3" data-suffix="">0</StatValue>
+              <StatLabel>Internships</StatLabel>
             </StatItem>
           </BioStats>
           <SocialLinksRow>

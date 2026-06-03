@@ -1,93 +1,76 @@
 {
   "header": {
-    "title": "Vyas",
-    "subtitle": "Generative AI Intern @ Inspire Softech | Skilled in LLMs, Hugging Face, Prompt Engineering, Gradio, SQL, UiPath, pandas | AICTE-Certified"
+    "title": "S Vyas",
+    "subtitle": "2nd-year AI/ML Engineering student building production-grade LLM systems & computer vision solutions. Specialized in emotionally-aware AI agents, RAG pipelines, and multimodal systems."
   },
   "about": {
     "title": "About Me",
-    "content": "I am an Aspiring AI Engineer and Applied Data Science student with a passion for developing real-world solutions. My experience includes building projects like the emotion-aware Nova AI and a precision farming system called Aerorover. I am proficient in Python, MySQL, and FastAPI, and an active contributor to tech communities. I am currently honing my skills as an intern at Inspire Softech Solution."
+    "content": "2nd-year AI/ML Engineering student at St. Joseph's College of Engineering building production-grade LLM systems and computer vision solutions. Specialized in emotionally-aware AI agents, RAG pipelines, and multimodal systems. 56 public repositories with active contributions to neural networks, prompt engineering, and full-stack AI deployment. Open to internships and AI research collaborations."
   },
   "skills": {
     "title": "Skills",
     "items": [
-      "Artificial Intelligence & Machine Learning",
-      "Python",
-      "SQL & Databases",
-      "HTML/CSS & JavaScript",
-      "Flask & FastAPI",
-      "Gradio & Hugging Face",
-      "UiPath (RPA)",
-      "Prompt Engineering",
-      "Natural Language Processing (NLP)"
+      "LLM & Agents (LangChain, LlamaIndex, OpenAI API, Claude, HuggingFace)",
+      "ML/DL Frameworks (PyTorch, TensorFlow, Keras, scikit-learn, YOLOv8, MediaPipe)",
+      "Vector DBs & RAG (Pinecone, ChromaDB, FAISS)",
+      "Python, TypeScript, JavaScript, SQL",
+      "Backend & APIs (FastAPI, Flask, Node.js, Next.js)",
+      "Databases (PostgreSQL, MongoDB, Supabase, MySQL, Firebase)",
+      "DevOps & Deployment (GitHub Pages, Vercel, Render, Docker, GitHub Actions)"
     ]
   },
   "projects": {
     "title": "Projects",
     "items": [
       {
-        "title": "Nova System AI",
-        "description": "Next-generation Emotional AI System with real-time facial emotion detection, smart data logging, voice interaction, and a NOVA CLI with Neural Intent Engine for system-level control via natural language.",
+        "title": "Nova AI",
+        "description": "Multimodal Emotional Intelligence System combining facial expression recognition, vocal tone analysis, and text into a unified emotional context vector. Psychological Analysis SLM layer generates session-level well-being reports with stress profiling. Living memory architecture for session continuity with adaptive tone-shifting; React 19 + Vite frontend with privacy-first local data storage.",
         "link": "https://github.com/veeda241/Nova-System-AI",
         "tags": [
           "Python",
-          "NLP",
-          "Emotion AI",
-          "LLMs"
+          "FastAPI",
+          "React 19",
+          "TensorFlow",
+          "LangChain",
+          "Google Gemini"
         ]
       },
       {
-        "title": "NOVA CLI",
-        "description": "An AI-powered command-line assistant featuring a Neural Intent Engine (NIE) that processes natural language to control system functions like launching apps, adjusting volume, and taking screenshots.",
-        "link": "https://github.com/veeda241/NOVA-CLI",
+        "title": "ExamGuard Pro",
+        "description": "AI-powered real-time proctoring with multi-modal analysis: MediaPipe face detection, gaze tracking, YOLOv8 device detection, and Tesseract OCR for forbidden-content screening. Dynamic weighted risk scoring with automated PDF reports. Four-layer cheat-resistance architecture: Chrome Manifest V3 extension, FastAPI backend, Supabase real-time DB, and JWT-secured multi-agent AI pipeline with WebSocket live dashboard.",
+        "link": "https://github.com/veeda241/ExamGuard-Pro",
         "tags": [
           "Python",
-          "Ollama",
-          "Hugging Face",
-          "CLI"
+          "FastAPI",
+          "React 19",
+          "YOLOv8",
+          "MediaPipe",
+          "Supabase"
         ]
       },
       {
-        "title": "Legal Case Law Bot",
-        "description": "AI-driven knowledge management bot for legal case law. Uses NLP to parse, index, and retrieve relevant legal cases, enabling lawyers and researchers to find precedents efficiently.",
-        "link": "https://github.com/veeda241/Legal-Case-Law-Knowledge-Management-Bot",
+        "title": "StudyBuddy Pro",
+        "description": "Adaptive AI-powered learning suite with offline-capable smart quiz and flashcard generation from student notes using local NLP algorithms. Spaced repetition engine adjusts difficulty in real-time. Gamified productivity layer: Pomodoro timer with XP/coin rewards, daily streak tracking, and a configurable task manager; full-stack local-first architecture with JWT auth and SQLite.",
+        "link": "https://github.com/veeda241/studybuddy-pro",
         "tags": [
           "Python",
-          "NLP",
+          "React",
+          "Node.js",
+          "SQLite",
           "RAG",
-          "LegalTech"
+          "Pinecone"
         ]
       },
       {
-        "title": "AQI AI Agent",
-        "description": "An AI agent that monitors and analyzes Air Quality Index data in real-time, providing insights and recommendations for environmental awareness using web scraping and data visualization.",
-        "link": "https://github.com/veeda241/AQI-AI-AGENT",
+        "title": "Personal Portfolio",
+        "description": "Interactive developer portfolio with 3D graphics (Three.js + React Three Fiber), particle animations (tsParticles), and smooth transitions (Framer Motion). Sections covering projects, skills, achievements, and a blog; styled with Styled Components and built in React + TypeScript.",
+        "link": "https://github.com/veeda241/portfolio",
         "tags": [
-          "JavaScript",
-          "AI Agent",
-          "Data Viz",
-          "Environment"
-        ]
-      },
-      {
-        "title": "MatsyaN - Fish Recognition",
-        "description": "Intelligent fish species recognition and analysis system using deep learning and Gradio. Classifies fish species from images with CNNs, providing detailed species information and habitat data.",
-        "link": "https://github.com/veeda241/MatsyaN-Teen-Titans",
-        "tags": [
-          "Python",
-          "Deep Learning",
-          "Gradio",
-          "CNNs"
-        ]
-      },
-      {
-        "title": "SentinelDB",
-        "description": "AI-driven self-healing database layer that monitors query behavior, detects anomalies in data patterns, verifies data authenticity using cryptographic fingerprints, and assigns live Trust Scores.",
-        "link": "https://github.com/veeda241/SentinelDB",
-        "tags": [
-          "AI",
-          "Database",
-          "Security",
-          "Cryptography"
+          "React",
+          "TypeScript",
+          "Three.js",
+          "Framer Motion",
+          "tsParticles"
         ]
       },
       {
@@ -102,41 +85,33 @@
         ]
       },
       {
-        "title": "Generative Design",
-        "description": "Exploration of generative design patterns using Python and machine learning. Creates AI-generated visual designs, textures, and patterns through procedural generation algorithms.",
-        "link": "https://github.com/veeda241/Generative-Design",
+        "title": "MatsyaN - Fish Recognition",
+        "description": "Intelligent fish species recognition and analysis system using deep learning and Gradio. Classifies fish species from images with CNNs, providing detailed species information and habitat data.",
+        "link": "https://github.com/veeda241/MatsyaN-Teen-Titans",
         "tags": [
           "Python",
-          "Generative AI",
-          "ML",
-          "Design"
-        ]
-      },
-      {
-        "title": "DAC Website",
-        "description": "Data Analytics Club website built with TypeScript featuring a Gemini API-powered chatbot, event management, member showcases, and modern glassmorphism UI design.",
-        "link": "https://github.com/veeda241/DAC-website",
-        "tags": [
-          "TypeScript",
-          "Gemini API",
-          "React",
-          "UI/UX"
-        ]
-      },
-      {
-        "title": "StudyBuddy Pro",
-        "description": "A personal productivity and learning companion with gamification features, focus timers, and progress tracking. Built with React frontend and Node.js/SQLite backend for local-first architecture.",
-        "link": "https://github.com/veeda241/studybuddy-pro",
-        "tags": [
-          "React",
-          "Node.js",
-          "SQLite",
-          "EdTech"
+          "Deep Learning",
+          "Gradio",
+          "CNNs"
         ]
       }
     ]
   },
   "certificates": [
+    {
+      "title": "Google Cloud Vertex AI Prompt Design",
+      "issuer": "Google",
+      "date": "2025",
+      "type": "certification",
+      "icon": "google"
+    },
+    {
+      "title": "Artificial Intelligence Fundamentals",
+      "issuer": "IBM",
+      "date": "2025",
+      "type": "certification",
+      "icon": "ai"
+    },
     {
       "title": "Deep Learning",
       "issuer": "IBM",
@@ -152,16 +127,23 @@
       "icon": "ai"
     },
     {
-      "title": "SQL and Relational Databases 101",
-      "issuer": "IBM",
-      "date": "Aug 2025",
+      "title": "Building AI-Powered Search with MongoDB Vector Search",
+      "issuer": "MongoDB",
+      "date": "Jun 2025",
       "type": "certification",
       "icon": "data"
     },
     {
-      "title": "Building AI-Powered Search with MongoDB Vector Search",
-      "issuer": "MongoDB",
-      "date": "Jun 2025",
+      "title": "Introduction to Data Science",
+      "issuer": "Cisco",
+      "date": "May 2025",
+      "type": "certification",
+      "icon": "data"
+    },
+    {
+      "title": "Data Science Foundation",
+      "issuer": "Infosys Springboard",
+      "date": "Sep 2025",
       "type": "certification",
       "icon": "data"
     },
@@ -173,77 +155,85 @@
       "icon": "analytics"
     },
     {
-      "title": "Introduction to Data Science",
-      "issuer": "Cisco",
-      "date": "May 2025",
+      "title": "Oracle Database Administration",
+      "issuer": "Oracle / IIT Bombay",
+      "date": "2025",
       "type": "certification",
       "icon": "data"
-    },
-    {
-      "title": "Artificial Intelligence Fundamentals",
-      "issuer": "IBM",
-      "date": "Apr 2025",
-      "type": "certification",
-      "icon": "ai"
-    },
-    {
-      "title": "Python Essentials 1",
-      "issuer": "Cisco",
-      "date": "Mar 2025",
-      "type": "certification",
-      "icon": "python"
-    },
-    {
-      "title": "UiPath Automation Explorer",
-      "issuer": "UiPath Academy",
-      "date": "Sep 2024",
-      "type": "certification",
-      "icon": "robot"
-    },
-    {
-      "title": "Probability & Statistics using Python",
-      "issuer": "Infosys Springboard",
-      "date": "Sep 2025",
-      "type": "certification",
-      "icon": "analytics"
     }
   ],
   "experience": [
     {
-      "title": "Generative AI Intern",
-      "issuer": "Inspire Softech Solution",
-      "date": "2025",
+      "title": "AI Engineer Intern",
+      "issuer": "IQmath Technologies",
+      "date": "Jun 2026 — Jul 2026",
       "type": "experience",
-      "icon": "work"
+      "icon": "ai",
+      "description": "Gaining hands-on exposure to Generative AI, Machine Learning, and real-world AI application development. Building and evaluating AI pipelines covering data processing, model integration, and deployment on production infrastructure."
     },
     {
-      "title": "AI/ML Intern",
-      "issuer": "Stackrack Tech",
-      "date": "2024 - 2025",
+      "title": "React & AI Developer Support Intern",
+      "issuer": "Stackrack Tech India Pvt Ltd",
+      "date": "Dec 2025 — Present",
       "type": "experience",
-      "icon": "work"
+      "icon": "work",
+      "description": "Supporting front-end development with React and Next.js; building responsive, performance-optimized components. Researching and implementing prompt engineering techniques for LLM integration into production applications."
+    },
+    {
+      "title": "Artificial Intelligence Intern",
+      "issuer": "Inspire Softech",
+      "date": "Jun 2025 — Jul 2025",
+      "type": "experience",
+      "icon": "robot",
+      "description": "Built interactive AI interfaces using Gradio; deployed HuggingFace models in Google Colab. Implemented conversational agents with model chaining and prompt optimization for real-time chat applications."
     }
   ],
   "achievements": [
     {
-      "title": "Data Analytics Club Coordinator",
-      "issuer": "St. Joseph's College",
-      "date": "2024",
+      "title": "Community Leader",
+      "issuer": "CodeHack Pirates",
+      "date": "2025",
       "type": "achievement",
+      "description": "Organizing technical workshops and hackathons.",
       "icon": "community"
     },
     {
-      "title": "Nova AI Developer",
-      "issuer": "Self-Developed",
+      "title": "GDG Chennai Member",
+      "issuer": "Google Developer Group",
       "date": "2025",
       "type": "achievement",
-      "description": "Created a next-generation Emotional AI assistant with real-time facial emotion detection and voice interaction.",
-      "icon": "robot"
+      "description": "Engaging with the Chennai developer community on AI/ML and Google technologies.",
+      "icon": "google"
+    },
+    {
+      "title": "GDG on Campus Member",
+      "issuer": "St. Joseph's College of Engineering",
+      "date": "2025",
+      "type": "achievement",
+      "description": "Participating in campus-level tech events, workshops, and AI adoption initiatives.",
+      "icon": "community"
+    },
+    {
+      "title": "Open Source Contributor",
+      "issuer": "GitHub",
+      "date": "2024 — Present",
+      "type": "achievement",
+      "description": "56 public repositories, active GitHub contributor with focus on AI/ML tooling.",
+      "icon": "community"
     }
   ],
+  "education": {
+    "institution": "St. Joseph's College of Engineering",
+    "degree": "B.Tech in Artificial Intelligence and Machine Learning Engineering",
+    "location": "Chennai, India",
+    "duration": "2024 — 2028",
+    "cgpa": "7.51/10",
+    "coursework": "Neural Networks, Deep Learning, NLP, Computer Vision, MLOps"
+  },
   "contact": {
     "title": "Contact Me",
     "email": "vyas.sk17@gmail.com",
+    "phone": "+91 9445290039",
     "social": [
       {
         "name": "GitHub",
@@ -254,8 +244,8 @@
         "url": "https://www.linkedin.com/in/vyas-s-veeda/"
       },
       {
-        "name": "LeetCode",
-        "url": "https://leetcode.com/vyas_sk/"
+        "name": "Portfolio",
+        "url": "https://veeda241.github.io/portfolio/"
       }
     ]
   }

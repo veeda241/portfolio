@@ -5,34 +5,38 @@ import novaAiImage from '../assets/nova_ai.png';
 import gansCnnsImage from '../assets/gans_cnns.png';
 import nlpNewImage from '../assets/nlp_new.png';
 import AnimatedSectionTitle from './AnimatedSectionTitle';
+import ScrollStack, { ScrollStackItem } from './ScrollStack';
 
 
 
 const BlogWrapper = styled.section`
-  padding: ${props => props.theme.space[8]} ${props => props.theme.space[6]};
+  padding: ${props => props.theme.space[8]} 0 0;
   background: ${props => props.theme.colors.surface.base};
   color: ${props => props.theme.colors.text.primary};
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 
   @media (max-width: 768px) {
-    padding: ${props => props.theme.space[6]} ${props => props.theme.space[4]};
+    padding-top: ${props => props.theme.space[6]};
   }
 `;
 
-const BlogPostsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: ${props => props.theme.space[5]};
-  max-width: 1200px;
-  margin: 0 auto;
+const TitleWrap = styled.div`
+  padding: 0 ${props => props.theme.space[6]};
+
+  @media (max-width: 768px) {
+    padding: 0 ${props => props.theme.space[4]};
+  }
 `;
 
-const BlogPostCard = styled(motion.div)`
+const BlogPostCard = styled(motion.a)`
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  min-height: 360px;
   background: ${props => props.theme.colors.surface.muted};
   border: 1px solid ${props => props.theme.colors.border.default};
-  border-radius: ${props => props.theme.radius.md};
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
   text-align: left;
@@ -42,15 +46,19 @@ const BlogPostCard = styled(motion.div)`
 
   &:hover {
     border-color: ${props => props.theme.colors.accent.default};
-    transform: translateY(-8px);
-    box-shadow: ${props => props.theme.shadows[3]};
+    box-shadow: 0 28px 90px rgba(194, 164, 255, 0.14);
+  }
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
   }
 `;
 
 const BlogPostImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
-  height: 200px;
+  height: 100%;
+  min-height: 260px;
 `;
 
 const BlogPostImage = styled.img`
@@ -65,16 +73,19 @@ const BlogPostImage = styled.img`
 `;
 
 const BlogPostContent = styled.div`
-  padding: ${props => props.theme.space[5]};
+  padding: clamp(26px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const BlogPostTitle = styled.h3`
   font-family: ${props => props.theme.fonts.primary};
-  font-size: 1.25em;
+  font-size: clamp(1.7rem, 4vw, 3.5rem);
   font-weight: 900;
   margin-bottom: ${props => props.theme.space[2]};
   color: ${props => props.theme.colors.text.primary};
-  line-height: 1.3;
+  line-height: 1;
   text-transform: uppercase;
   transition: color ${props => props.theme.motion.fast} ease;
 
@@ -85,13 +96,9 @@ const BlogPostTitle = styled.h3`
 
 const BlogPostDescription = styled.p`
   font-family: ${props => props.theme.fonts.secondary};
-  font-size: 0.95em;
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.75;
   color: ${props => props.theme.colors.text.secondary};
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   margin-bottom: ${props => props.theme.space[4]};
 `;
 
@@ -144,29 +151,34 @@ const blogPosts = [
 const Blog: React.FC = () => {
   return (
     <BlogWrapper id="blog">
-      <AnimatedSectionTitle label="// blog_posts" title="My Blog" />
-      <BlogPostsContainer>
+      <TitleWrap>
+        <AnimatedSectionTitle label="// blog_stack" title="My Blog" />
+      </TitleWrap>
+      <ScrollStack itemDistance={80}>
         {blogPosts.map((post, index) => (
-          <BlogPostCard
-            key={post.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.12 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            onClick={() => window.open(post.url, '_blank')}
-          >
-            <BlogPostImageWrapper>
-              <BlogPostImage src={post.image} alt={post.title} />
-            </BlogPostImageWrapper>
-            <BlogPostContent>
-              <BlogPostTitle>{post.title}</BlogPostTitle>
-              <BlogPostDescription>{post.description}</BlogPostDescription>
-              <ReadMore>Read Article</ReadMore>
-            </BlogPostContent>
-          </BlogPostCard>
+          <ScrollStackItem key={post.id} index={index}>
+            <BlogPostCard
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
+            >
+              <BlogPostImageWrapper>
+                <BlogPostImage src={post.image} alt={post.title} />
+              </BlogPostImageWrapper>
+              <BlogPostContent>
+                <BlogPostTitle>{post.title}</BlogPostTitle>
+                <BlogPostDescription>{post.description}</BlogPostDescription>
+                <ReadMore>Read Article</ReadMore>
+              </BlogPostContent>
+            </BlogPostCard>
+          </ScrollStackItem>
         ))}
-      </BlogPostsContainer>
+      </ScrollStack>
     </BlogWrapper>
   );
 };

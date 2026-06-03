@@ -23,7 +23,7 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ title }) => {
   return (
     <SectionWrapper id="projects">
-      <AnimatedSectionTitle label="// my_work" title={title} />
+      <AnimatedSectionTitle label="// main_projects" title={title} />
       <ProjectShowcase items={portfolioData.projects.items} />
     </SectionWrapper>
   );

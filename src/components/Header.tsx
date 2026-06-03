@@ -240,12 +240,12 @@ const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
 
   return (
     <HeaderWrapper ref={headerRef}>
-      <Greeting className="header-greeting">Aspiring AI Engineer</Greeting>
+      <Greeting className="header-greeting">AI/ML Engineer</Greeting>
       <TitleWrapper>
         <Title>
           {letters.map((letter, i) => (
             <TitleLetter key={i} className="title-letter">
-              {letter}
+              {letter === ' ' ? '\u00A0' : letter}
             </TitleLetter>
           ))}
         </Title>

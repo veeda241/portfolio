@@ -159,7 +159,7 @@ const Footer: React.FC = () => {
           <FooterLink href="#skills">Skills</FooterLink>
           <FooterLink href="#projects">Projects</FooterLink>
           <FooterLink href="#blog">Blog</FooterLink>
-          <FooterLink href="Vyas.S Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <FooterLink href={`${process.env.PUBLIC_URL}/S.Vyas Resume.pdf`} target="_blank" rel="noopener noreferrer">
             <FaFileDownload /> Resume
           </FooterLink>
         </FooterSection>
